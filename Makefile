@@ -52,7 +52,7 @@ colddirs += code
 ### Makestuff
 
 ## Makestuff setup
-Sources += Makefile 
+Sources += Makefile README.md
 msrepo = https://github.com/dushoff
 ms = makestuff
 
