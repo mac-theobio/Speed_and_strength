@@ -27,7 +27,7 @@ Ignore += $(alldirs)
 
 products: speedstrength.pdf supp.pdf head.txt
 
-Sources += $(wildcard *.tex)
+Sources += $(wildcard *.tex *.bib)
 
 ## speedstrength.pdf: speedstrength.tex
 ## supp.pdf: supp.tex
