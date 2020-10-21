@@ -12,19 +12,6 @@ Ignore += $(alldirs)
 
 ######################################################################
 
-## Crib
-
-%.bib: speedstrength/dotdir/%.bib
-	$(MV) $< $@
-
-%.tex: speedstrength/dotdir/%.tex
-	$(MV) $< $@
-
-%.pl: speedstrength/dotdir/%.pl
-	$(MV) $< $@
-
-######################################################################
-
 products: speedstrength.pdf supp.pdf head.txt
 
 Sources += $(wildcard *.tex *.bib)
