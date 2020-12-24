@@ -23,16 +23,33 @@
 
 \newcommand{\etal}{\textit{et al.}}
 
+%% Comments not used; activation command was edited not tested because of a vim syntax problem!
 \newcommand{\comment}{RENEW the comment command}
 \renewcommand{\comment}[3]{}
-\renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+\renewcommand{\comment}[3]{\textcolor{#1}{[\textbf{#2: }\textit{#3}]}}
 
-\newcommand{\Rx}[1]{\ensuremath{{\mathcal R}_{#1}}} 
-\newcommand{\Ro}{\Rx{0}}
 \newcommand{\RR}{\ensuremath{{\mathcal R}}}
+\newcommand{\Rx}[1]{\ensuremath{\RR_{\mathrm{#1}}}}
+\newcommand{\Rpre}{\Rx{pre}}
+\newcommand{\Rpost}{\Rx{post}}
+\newcommand{\Ro}{\Rx{0}}
+\newcommand{\Ropre}{\Rx{0,pre}}
+\newcommand{\Ropost}{\Rx{0,post}}
+\newcommand{\Reff}{\Rx{eff}}
+\newcommand{\Reffpre}{\Rx{eff,pre}}
+\newcommand{\Reffpost}{\Rx{eff,post}}
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
 
 \newcommand{\rr}{\ensuremath{{r}}}
+\newcommand{\rx}[1]{\ensuremath{\RR_{\mathrm{#1}}}}
+\newcommand{\rpre}{\rx{pre}}
+\newcommand{\rpost}{\rx{post}}
+\newcommand{\ro}{\rx{0}}
+\newcommand{\ropre}{\rx{0,pre}}
+\newcommand{\ropost}{\rx{0,post}}
+\newcommand{\reff}{\rx{eff}}
+\newcommand{\reffpre}{\rx{eff,pre}}
+\newcommand{\reffpost}{\rx{eff,post}}
 \newcommand{\rhat}{\ensuremath{{\hat\rr}}}
 
 \newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
@@ -89,7 +106,7 @@ The strength of an epidemic is characterized by the reproductive number \RR, whi
 The speed of an epidemic is characterized by the exponential growth rate $r$, which measures how \emph{fast} an epidemic grows at the population level.
 Knowing the strength and speed of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
-Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population --- called the \emph{basic} reproductive number \Ro\, --- because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
+Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population --- called the \emph{basic} reproductive number \Ro, --- because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
 The insight that a case must on average cause at least one new case under good conditions for a disease to persist goes back $>100$ years \citep{ross1911prevention};
 the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
@@ -99,6 +116,8 @@ We first generalize the idea that \RR\ measures the difficulty of elimination by
 We then show that we can likewise measure an intervention's ``speed'' on the same scale as the growth rate.
 Thus, there is a dual sense in which \rr\ also measures difficulty of elimination. 
 We argue that the primacy of $\RR$ over $r$ is partly due to history, and that there are cases where speed provides the better framing for practical disease questions than strength (as well as the reverse). We provide examples of both situations, for both HIV and COVID-19.
+
+Both \RR\ and \rr\ change through time, both intrinsically in response to changes in the proportion of the population susceptible and extrinsically in response to interventions. To \emph{arrest} the spread of disease, we need to bring the ``effective'' spreading under control ($\Reffpost<1$ or $\reffpost<0$). To approach \emph{elimination}, we need spreading to stay under control, even as the proportion of susceptibles approaches 1 and the quantities approach their ``basic'' values ($\Ropost<1$ or $\ropost<0$).
 
 \section{Mathematical theory}
 
