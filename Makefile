@@ -34,6 +34,7 @@ head.txt: speedstrength.tex abstract.pl
 october: speedstrength.tex.1d9ad422e25.oldfile supp.tex.1d9ad422e25.oldfile
 
 testsetup: october
+	cd code && $(MAKE) Makefile
 ## speedstrength_olddiff.pdf: speedstrength.tex
 
 ######################################################################
@@ -51,7 +52,7 @@ msrepo = https://github.com/dushoff
 ms = makestuff
 
 Ignore += makestuff
-Makefile: makestuff/Makefile code/makestuff/Makefile
+Makefile: makestuff/Makefile
 makestuff/Makefile:
 	git clone $(msrepo)/makestuff
 	ls $@
