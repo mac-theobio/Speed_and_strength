@@ -33,6 +33,7 @@ head.txt: speedstrength.tex abstract.pl
 ## October revision
 october: speedstrength.tex.1d9ad422e25.oldfile supp.tex.1d9ad422e25.oldfile
 
+speedstrength_olddiff.pdf: october
 ## speedstrength_olddiff.pdf: speedstrength.tex
 
 ######################################################################
