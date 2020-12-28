@@ -8,7 +8,7 @@ current: target
 alldirs += code
 Ignore += $(alldirs)
 
--include makestuff/perl.def
+## -include makestuff/perl.def
 
 ######################################################################
 
@@ -30,10 +30,10 @@ head.txt: speedstrength.tex abstract.pl
 
 ######################################################################
 
-Sources += speedstrength.oct.tex supp.oct.tex
+## October revision
+october: speedstrength.tex.1d9ad422e25.oldfile supp.tex.1d9ad422e25.oldfile
 
-%.oct.tex: %.tex
-	$(copy)
+## speedstrength_olddiff.pdf: speedstrength.tex
 
 ######################################################################
 
@@ -57,7 +57,7 @@ makestuff/Makefile:
 
 -include makestuff/os.mk
 
--include makestuff/texdeps.mk
+-include makestuff/texi.mk
 -include makestuff/utils.mk
 -include makestuff/pandoc.mk
 -include makestuff/hotcold.mk

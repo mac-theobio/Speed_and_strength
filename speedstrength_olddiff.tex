@@ -1,4 +1,7 @@
 \documentclass[12pt]{article}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL speedstrength.tex.1d9ad422e25.oldfile   Sun Dec 27 22:02:46 2020
+%DIF ADD speedstrength.tex                       Sun Dec 27 21:54:21 2020
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{grffile}
@@ -23,49 +26,65 @@
 
 \newcommand{\etal}{\textit{et al.}}
 
-%% Comments not used; activation command was edited not tested because of a vim syntax problem!
+%DIF 26a26
+%% Comments not used; activation command was edited not tested because of a vim syntax problem! %DIF > 
+%DIF -------
 \newcommand{\comment}{RENEW the comment command}
 \renewcommand{\comment}[3]{}
-\renewcommand{\comment}[3]{\textcolor{#1}{[\textbf{#2: }\textit{#3}]}}
+%DIF 28c29
+%DIF < \renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+%DIF -------
+\renewcommand{\comment}[3]{\textcolor{#1}{[\textbf{#2: }\textit{#3}]}} %DIF > 
+%DIF -------
 
+%DIF 30-31d31
+%DIF < \newcommand{\Rx}[1]{\ensuremath{{\mathcal R}_{#1}}} 
+%DIF < \newcommand{\Ro}{\Rx{0}}
+%DIF -------
 \newcommand{\RR}{\ensuremath{{\mathcal R}}}
-\newcommand{\Rx}[1]{\ensuremath{\RR_{\mathrm{#1}}}}
-\newcommand{\Rpre}{\Rx{pre}}
-\newcommand{\Rpost}{\Rx{post}}
-\newcommand{\Ro}{\Rx{0}}
-\newcommand{\Ropre}{\Rx{0,pre}}
-\newcommand{\Ropost}{\Rx{0,post}}
-\newcommand{\Reff}{\Rx{eff}}
-\newcommand{\Reffpre}{\Rx{eff,pre}}
-\newcommand{\Reffpost}{\Rx{eff,post}}
+%DIF 33a32-40
+\newcommand{\Rx}[1]{\ensuremath{\RR_{\mathrm{#1}}}} %DIF > 
+\newcommand{\Rpre}{\Rx{pre}} %DIF > 
+\newcommand{\Rpost}{\Rx{post}} %DIF > 
+\newcommand{\Ro}{\Rx{0}} %DIF > 
+\newcommand{\Ropre}{\Rx{0,pre}} %DIF > 
+\newcommand{\Ropost}{\Rx{0,post}} %DIF > 
+\newcommand{\Reff}{\Rx{eff}} %DIF > 
+\newcommand{\Reffpre}{\Rx{eff,pre}} %DIF > 
+\newcommand{\Reffpost}{\Rx{eff,post}} %DIF > 
+%DIF -------
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
 
-\newcommand{\KK}{\ensuremath{{K}}}
-\newcommand{\Kx}[1]{\ensuremath{\KK_{\mathrm{#1}}}}
-\newcommand{\Kpre}{\Kx{pre}}
-\newcommand{\Kpost}{\Kx{post}}
-\newcommand{\Ko}{\Kx{0}}
-\newcommand{\Kopre}{\Kx{0,pre}}
-\newcommand{\Kopost}{\Kx{0,post}}
-\newcommand{\Keff}{\Kx{eff}}
-\newcommand{\Keffpre}{\Kx{eff,pre}}
-\newcommand{\Keffpost}{\Kx{eff,post}}
-\newcommand{\Khat}{\ensuremath{{\hat\KK}}}
-
-\newcommand{\ggg}{\ensuremath{{g}}}
-\newcommand{\gx}[1]{\ensuremath{\ggg_{\mathrm{#1}}}}
-\newcommand{\gpre}{\gx{pre}}
-
+%DIF 35a43-58
+\newcommand{\KK}{\ensuremath{{K}}} %DIF > 
+\newcommand{\Kx}[1]{\ensuremath{\KK_{\mathrm{#1}}}} %DIF > 
+\newcommand{\Kpre}{\Kx{pre}} %DIF > 
+\newcommand{\Kpost}{\Kx{post}} %DIF > 
+\newcommand{\Ko}{\Kx{0}} %DIF > 
+\newcommand{\Kopre}{\Kx{0,pre}} %DIF > 
+\newcommand{\Kopost}{\Kx{0,post}} %DIF > 
+\newcommand{\Keff}{\Kx{eff}} %DIF > 
+\newcommand{\Keffpre}{\Kx{eff,pre}} %DIF > 
+\newcommand{\Keffpost}{\Kx{eff,post}} %DIF > 
+\newcommand{\Khat}{\ensuremath{{\hat\KK}}} %DIF > 
+ %DIF > 
+\newcommand{\ggg}{\ensuremath{{g}}} %DIF > 
+\newcommand{\gx}[1]{\ensuremath{\ggg_{\mathrm{#1}}}} %DIF > 
+\newcommand{\gpre}{\gx{pre}} %DIF > 
+ %DIF > 
+%DIF -------
 \newcommand{\rr}{\ensuremath{{r}}}
-\newcommand{\rx}[1]{\ensuremath{\rr_{\mathrm{#1}}}}
-\newcommand{\rpre}{\rx{pre}}
-\newcommand{\rpost}{\rx{post}}
-\newcommand{\ro}{\rx{0}}
-\newcommand{\ropre}{\rx{0,pre}}
-\newcommand{\ropost}{\rx{0,post}}
-\newcommand{\reff}{\rx{eff}}
-\newcommand{\reffpre}{\rx{eff,pre}}
-\newcommand{\reffpost}{\rx{eff,post}}
+%DIF 36a60-68
+\newcommand{\rx}[1]{\ensuremath{\rr_{\mathrm{#1}}}} %DIF > 
+\newcommand{\rpre}{\rx{pre}} %DIF > 
+\newcommand{\rpost}{\rx{post}} %DIF > 
+\newcommand{\ro}{\rx{0}} %DIF > 
+\newcommand{\ropre}{\rx{0,pre}} %DIF > 
+\newcommand{\ropost}{\rx{0,post}} %DIF > 
+\newcommand{\reff}{\rx{eff}} %DIF > 
+\newcommand{\reffpre}{\rx{eff,pre}} %DIF > 
+\newcommand{\reffpost}{\rx{eff,post}} %DIF > 
+%DIF -------
 \newcommand{\rhat}{\ensuremath{{\hat\rr}}}
 
 \newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
@@ -75,6 +94,70 @@
 \newcommand{\figlab}[1]{\label{fig:#1}}
 \newcommand{\eqref}[1]{(\ref{eq:#1})}
 \newcommand{\eqlab}[1]{\label{eq:#1}}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
 \begin{document}
 
 \begin{flushleft}{
@@ -122,7 +205,7 @@ The strength of an epidemic is characterized by the reproductive number \RR, whi
 The speed of an epidemic is characterized by the exponential growth rate $r$, which measures how \emph{fast} an epidemic grows at the population level.
 Knowing the strength and speed of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
-Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population --- called the \emph{basic} reproductive number \Ro, --- because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
+Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population --- called the \emph{basic} reproductive number \Ro\DIFdelbegin \DIFdel{\, }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend --- because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
 The insight that a case must on average cause at least one new case under good conditions for a disease to persist goes back $>100$ years \citep{ross1911prevention};
 the idea of averaging by defining a `typical' case was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
@@ -133,9 +216,10 @@ We then show that we can likewise measure an intervention's ``speed'' on the sam
 Thus, there is a dual sense in which \rr\ also measures difficulty of elimination. 
 We argue that the primacy of $\RR$ over $r$ is partly due to history, and that there are cases where speed provides the better framing for practical disease questions than strength (as well as the reverse). We provide examples of both situations, for both HIV and COVID-19.
 
-Both \RR\ and \rr\ change through time, both intrinsically in response to changes in the proportion of the population susceptible and extrinsically in response to interventions. To \emph{arrest} the spread of disease, we need to bring the ``effective'' spreading quantities under control ($\Reffpost<1$ or $\reffpost<0$). To approach \emph{elimination}, we need spreading to stay under control, even as the proportion of susceptibles approaches 1 and the quantities approach their ``basic'' values ($\Ropost<1$ or $\ropost<0$).
+\DIFaddbegin \DIFadd{Both }\RR\DIFadd{\ and }\rr\DIFadd{\ change through time, both intrinsically in response to changes in the proportion of the population susceptible and extrinsically in response to interventions. To }\emph{\DIFadd{arrest}} \DIFadd{the spread of disease, we need to bring the ``effective'' spreading quantities under control ($\Reffpost<1$ or $\reffpost<0$). To approach }\emph{\DIFadd{elimination}}\DIFadd{, we need spreading to stay under control, even as the proportion of susceptibles approaches 1 and the quantities approach their ``basic'' values ($\Ropost<1$ or $\ropost<0$).
+}
 
-\section{Mathematical theory}
+\DIFaddend \section{Mathematical theory}
 
 \subsection{Epidemic model}
 
@@ -147,9 +231,11 @@ i(t) = \int K(\tau, t) i(t-\tau) d\tau.
 Here, $K(\tau, t)$ is the infection kernel describing how infectious we expect an individual infected $\tau$ time units ago to be in the population.
 In general, $K(\tau, t)$ will depend on population characteristics that may change through time $t$ --- notably, the proportion of the population susceptible, $S(t)$.
 
-When $K$ remains constant over time, the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
-Since we are interested in invasion and control, we will often assume that changes in $S$ through time are negligible (as would be expected when disease levels are small) -- that is, $S(t) \approx S(0)$.
-However, this focus does not mean we are only interested in the initial period of exponential growth: the ability of a disease to spread under conditions characteristic of a naive population is commonly used as a criterion for whether it can be eliminated under general conditions \citep{anderson1985vaccination,fraser2004factors}.
+\DIFdelbegin \DIFdel{Since we are interested in invasion and control, we will generally neglect changes in $K(\tau, t)$ through timeand assume $K(\tau, t) \equiv K(\tau)$.
+Importantly, this means we are neglecting changes in susceptible proportion through time: $S(t) \approx S(0)$.
+Under this assumption, }\DIFdelend \DIFaddbegin \DIFadd{When $K$ remains constant over time, }\DIFaddend the renewal equation is equivalent to the Von Foerster equations (see e.g. \cite{fraser2004factors}).
+\DIFaddbegin \DIFadd{Since we are interested in invasion and control, we will often assume that changes in $S$ through time are negligible (as would be expected when disease levels are small) -- that is, $S(t) \approx S(0)$.
+}\DIFaddend However, this focus does not mean we are only interested in the initial period of exponential growth: the ability of a disease to spread under conditions characteristic of a naive population is commonly used as a criterion for whether it can be eliminated under general conditions \citep{anderson1985vaccination,fraser2004factors}.
 
 \subsection{Strength-based decomposition}
 
@@ -157,17 +243,17 @@ However, this focus does not mean we are only interested in the initial period o
 \includegraphics[width=\textwidth]{code/gencontrol.Rout.pdf}
 \caption{
 \textbf{Effects of constant-strength and constant-speed intervention on infection kernels.}
-Ebola-like gamma infection kernel (pre-intervention) $\Kpre(\tau)$ (mean: 16.2 days, CV: 0.58, and \Ro: 1.5) is shown in black \citep{park2019practical}.
-Post-intervention kernels The infection kernel after applying each intervention strategy $\Kpost(\tau)$ is shown in red.
+Ebola-like gamma infection kernel \DIFdelbeginFL \DIFdelFL{$K(\tau)$ }\DIFdelendFL (\DIFaddbeginFL \DIFaddFL{pre-intervention) $\Kpre(\tau)$ (}\DIFaddendFL mean: 16.2 days, CV: 0.58, and \Ro: 1.5) is shown in black \citep{park2019practical}.
+\DIFaddbeginFL \DIFaddFL{Post-intervention kernels }\DIFaddendFL The infection kernel after applying each intervention strategy \DIFdelbeginFL \DIFdelFL{$\hat K(\tau)$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\Kpost(\tau)$ }\DIFaddendFL is shown in red.
 (A) The effect of a constant-strength intervention with $\theta = 1.5$.
-A constant-strength intervention reduces the density by a constant proportion: $\Kpost(\tau) = \Kpre(\tau)/\theta$; when the strength of intervention matches the strength of epidemic ($\theta = \RR$), the resulting distribution is equivalent to the intrinsic generation-interval distribution ($\Kpost(\tau) = g(\tau)$).
+A constant-strength intervention reduces the density by a constant proportion: \DIFdelbeginFL \DIFdelFL{$\hat K(\tau) = K(\tau)/\theta$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\Kpost(\tau) = \Kpre(\tau)/\theta$}\DIFaddendFL ; when the strength of intervention matches the strength of epidemic (\DIFdelbeginFL \DIFdelFL{$\theta = \mathcal R$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\theta = \RR$}\DIFaddendFL ), the resulting distribution is equivalent to the intrinsic generation-interval distribution (\DIFdelbeginFL \DIFdelFL{$\hat K(\tau) = g(\tau)$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\Kpost(\tau) = g(\tau)$}\DIFaddendFL ).
 (B) A constant-speed intervention with $\phi \approx 0.0267/\mathrm{day}$ is applied to the same kernel.
-A constant-speed intervention reduces the density exponentially: $\Kpost(\tau) = \Kpre(\tau) \exp(-\phi \tau)$; when the speed of intervention matches the speed of epidemic ($\phi = r$), the resulting distribution is equivalent to the initial backward generation-interval distribution ($\Kpost(\tau) = b(\tau)$). 
+A constant-speed intervention reduces the density exponentially: \DIFdelbeginFL \DIFdelFL{$\hat K(\tau) = K(\tau) \exp(-\phi \tau)$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\Kpost(\tau) = \Kpre(\tau) \exp(-\phi \tau)$}\DIFaddendFL ; when the speed of intervention matches the speed of epidemic ($\phi = r$), the resulting distribution is equivalent to the initial backward generation-interval distribution (\DIFdelbeginFL \DIFdelFL{$\hat K(\tau) = b(\tau)$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\Kpost(\tau) = b(\tau)$}\DIFaddendFL ). 
 }
 \figlab{constant}
 \end{figure}
 
-If the infection kernel $K$ is not changing with time, we can write:
+\DIFdelbegin \DIFdel{Assuming that }\DIFdelend \DIFaddbegin \DIFadd{If }\DIFaddend the infection kernel $K$ \DIFdelbegin \DIFdel{doesn't change }\DIFdelend \DIFaddbegin \DIFadd{is not changing }\DIFaddend with time, we \DIFaddbegin \DIFadd{can }\DIFaddend write:
 \begin{equation}
 	K(\tau) = \RR g(\tau),
 	\eqlab{strengthFactors}
@@ -177,20 +263,23 @@ The generation interval is defined as the time between when a person becomes inf
 therefore, the intrinsic generation-interval distribution $g(\tau)$ gives the relative infectiousness of an average individual as a function of time since infection \citep{champredon2015intrinsic}. 
 Since $g$ is a distribution, it integrates to 1, and the basic reproductive number \RR\ is thus the integral of $K$.
 
-Imagine we have a pre-intervention $\Kpre = \Rpre g(\tau)$ (we generally suppress the suffix in \gpre\ for readability) and a control measure that proportionally reduces $K$ by a factor of $\theta$, for example, by protecting a fixed fraction of susceptibles through vaccination (\figref{constant}A). We then have:
+Imagine \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{we have a pre-intervention $\Kpre = \Rpre g(\tau)$ (we generally suppress the suffix in }\gpre\DIFadd{\ for readability) and a }\DIFaddend control measure that proportionally reduces $K$ by a factor of $\theta$, for example, by protecting a fixed fraction of susceptibles through vaccination (\figref{constant}A). We then have:
 \begin{equation}
-	\Kpost(\tau) = (\RR/\theta) g(\tau).
+	\DIFdelbegin %DIFDELCMD < \hat %%%
+\DIFdel{K}\DIFdelend \DIFaddbegin \Kpost\DIFaddend (\tau) = (\RR/\theta) g(\tau).
 \end{equation}
 Since $g$ integrates to 1, the reduction needed to prevent invasion (or to eliminate disease) is exactly $\theta=\RR$. We call $\theta$ the ``strength'' of the intervention; transmission is interrupted when the strength of the intervention $\theta$ is larger than the strength of spread $\RR$.
 
 We generalize this idea by allowing an intervention strategy to reduce $K$ by different proportions over the course of an individual infection. We write the post-intervention kernel:
 \begin{equation}
-	\Kpost(\tau) = \Kpre(\tau)/L(\tau), 
+	\DIFdelbegin %DIFDELCMD < \hat %%%
+\DIFdel{K}\DIFdelend \DIFaddbegin \Kpost\DIFaddend (\tau) = \DIFdelbegin \DIFdel{K}\DIFdelend \DIFaddbegin \Kpre\DIFaddend (\tau)/L(\tau), 
 \end{equation}
 where $L(\tau)$ is the average multiplicative reduction for an individual infected time $\tau$ ago.
 The post-intervention reproductive number is thus:
 \begin{equation}
-	\Rhat = \int \Kpost(\tau) d\tau.
+	\Rhat = \int \DIFdelbegin %DIFDELCMD < \hat %%%
+\DIFdel{K}\DIFdelend \DIFaddbegin \Kpost\DIFaddend (\tau) d\tau.
 \end{equation}
 This framework generalizes the work of \cite{fraser2004factors}, who made parametric assumptions about the shape of $L(\tau)$. 
 
@@ -226,24 +315,28 @@ Like $g$, $b$ is a distribution: in this case the initial backward generation in
 Now imagine an idealized intervention that reduces transmission at a constant hazard rate $\phi$ across the disease generation (\figref{constant}B), for example, by identifying and isolating infectious individuals.
 We then have:
 \begin{equation}
-	\Kpost(\tau) = \Kpre(\tau)\exp(-\phi\tau)
+	\DIFdelbegin %DIFDELCMD < \hat %%%
+\DIFdel{K}\DIFdelend \DIFaddbegin \Kpost\DIFaddend (\tau) = \DIFdelbegin \DIFdel{K}\DIFdelend \DIFaddbegin \Kpre\DIFaddend (\tau)\exp(-\phi\tau)
 \end{equation}
-The interpretation is that average infectiousness for under this control regime is the product of the original infectiousness $\Kpre(\tau)$ (at age of infection $\tau$) and the probability $\exp(-\phi\tau)$ of escaping the hazard of control up to that time.
+The interpretation is that average infectiousness for under this control regime is the product of the original infectiousness \DIFdelbegin \DIFdel{$K(\tau)$ }\DIFdelend \DIFaddbegin \DIFadd{$\Kpre(\tau)$ }\DIFaddend (at age of infection $\tau$) and the probability $\exp(-\phi\tau)$ of escaping the hazard of control up to that time.
 
 Substituting \eqref{Kback}:
 \begin{equation}
-	\Kpost(\tau) = \Kpre(\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
+	\DIFdelbegin %DIFDELCMD < \hat %%%
+\DIFdel{K}\DIFdelend \DIFaddbegin \Kpost\DIFaddend (\tau) = \DIFdelbegin \DIFdel{K}\DIFdelend \DIFaddbegin \Kpre\DIFaddend (\tau)\exp(-\phi\tau) = b(\tau)\exp((r-\phi)\tau)
 \end{equation}
 Since $b$ is a distribution (which integrates to 1), the reduction needed to prevent invasion (or to eliminate disease) is exactly $\phi=r$. 
 We call $\phi$ the ``speed'' of the intervention; transmission is interrupted when the speed of the intervention is faster than the speed of spread.
 
 We generalize this idea by allowing the hazard rate $h(\tau)$ at which $K$ is reduced to vary through time, thus:
 \begin{equation}
-	\Kpost(\tau) = \Kpre(\tau) \exp\left(-\int_0^\tau h(\sigma) d\sigma\right)
+	\DIFdelbegin %DIFDELCMD < \hat %%%
+\DIFdel{K}\DIFdelend \DIFaddbegin \Kpost\DIFaddend (\tau) = \DIFdelbegin \DIFdel{K}\DIFdelend \DIFaddbegin \Kpre\DIFaddend (\tau) \exp\left(-\int_0^\tau h(\sigma) d\sigma\right)
 \end{equation}
 The associated post-intervention epidemic speed $\hat r$ is given by:
 \begin{equation}
-	1 = \int \Kpost(\tau) \exp(-\hat r\tau) d\tau.	
+	1 = \int \DIFdelbegin %DIFDELCMD < \hat %%%
+\DIFdel{K}\DIFdelend \DIFaddbegin \Kpost\DIFaddend (\tau) \exp(-\hat r\tau) d\tau.	
 \end{equation}
 We define the speed of a general intervention to be $\phi = r - \hat r$
 We can then show that $\phi$ is a (sort of) mean satisfying the implicit equation:
@@ -265,7 +358,7 @@ instead, they are meant to demonstrate how strength- and speed-based perspective
 
 We model the infection kernel of the HIV as a sum of two gamma distributions:
 \begin{equation}
-K(\tau) = \RR \left(\tsub{p}{early} \tsub{f}{early}(\tau) + (1-\tsub{p}{early}) \tsub{f}{late}(\tau) \right).
+K(\tau) = \DIFdelbegin \DIFdel{\mathcal R }\DIFdelend \DIFaddbegin \RR \DIFaddend \left(\tsub{p}{early} \tsub{f}{early}(\tau) + (1-\tsub{p}{early}) \tsub{f}{late}(\tau) \right).
 \end{equation}
 The first component, $\tsub{f}{early}(\tau)$, models early HIV transmission during the acute infection stage.
 We assume that $\tsub{f}{early}(\tau)$ has a mean of 3 months \citep{hollingsworth2008hiv} and a shape parameter of 3.
@@ -286,15 +379,18 @@ The black circle indicates the baseline scenario.
 \end{figure}
 
 The infection kernel is shown in (\figref{example}A) for our baseline value of  
-$\tsub{p}{early} = 0.23$. We assume that the initial speed of the epidemic is $\ro=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\Ro$ would produce this rate of growth.
-When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \Ro\ decreases (\figref{example}C).
+$\tsub{p}{early} = 0.23$. We assume that the initial speed of the epidemic is \DIFdelbegin \DIFdel{$r=0.452\,\mathrm{year}^{-1}$}\DIFdelend \DIFaddbegin \DIFadd{$\ro=0.452\,\mathrm{year}^{-1}$}\DIFaddend (\figref{example}B), and ask what value of \DIFdelbegin \DIFdel{$\RR$ }\DIFdelend \DIFaddbegin \DIFadd{$\Ro$ }\DIFaddend would produce this rate of growth.
+When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \DIFdelbegin %DIFDELCMD < \RR%%%
+\DIFdelend \DIFaddbegin \Ro\DIFaddend \ decreases (\figref{example}C).
 Therefore, as \pEarly\ gets smaller, we expect stronger intervention to be required in order to control the disease.
-Here we are estimating the ``basic'' reproductive number \Ro, using information about the initial rate of spread \ro, as a proxy for the difficulty of eventually eliminating HIV. 
+\DIFaddbegin \DIFadd{Here we are estimating the ``basic'' reproductive number }\Ro\DIFadd{, using information about the initial rate of spread }\ro\DIFadd{, as a proxy for the difficulty of eventually eliminating HIV. 
+}\DIFaddend 
 
 We compare two different possible intervention strategies to shed light on the strength and speed decompositions.
 First, we consider a condom intervention that reduces HIV transmission by an average of approximately 75\%.
 Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the multiplicative reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$ (\figref{condom}A).
-The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic \Ro\ decreases as the proportion of early transmission \pEarly\ increases (\figref{condom}B).
+The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic \DIFdelbegin %DIFDELCMD < \RR%%%
+\DIFdelend \DIFaddbegin \Ro\DIFaddend \ decreases as the proportion of early transmission \pEarly\ increases (\figref{condom}B).
 Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if the amount of early transmission is low, we infer that disease spread is too strong to be controlled completely by our intervention.
 
 \begin{figure}[!t]
@@ -302,7 +398,9 @@ Thus, the predicted effectiveness of the condom intervention will depend strongl
 \caption{
 \textbf{Evaluating a condom intervention using strength-based decomposition.}
 (A) Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the multiplicative reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
-(B) The estimated amount of early transmission affects estimated epidemic strength \Ro, but not intervention strength $\theta$ of a condom-based intervention.
+(B) The estimated amount of early transmission affects estimated epidemic strength \DIFdelbeginFL %DIFDELCMD < \RR%%%
+\DIFdelendFL \DIFaddbeginFL \Ro\DIFaddendFL , but not intervention strength \DIFdelbeginFL %DIFDELCMD < \Rhat %%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\theta$ }\DIFaddendFL of a condom-based intervention.
 The black and red circles indicate the baseline scenario.
 }
 \figlab{condom}
@@ -313,10 +411,12 @@ The black and red circles indicate the baseline scenario.
 \caption{
 \textbf{Evaluating a test-and-treat intervention using strength- and speed-based decomposition.}
 (A) The strength of the test-and-treat intervention (calculated from the assumed hazard, (C)). The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
-(B) Increase in the estimated amount of early transmission decreases the estimated epidemic strength \RR\ as well as the estimated strength of a test-and-treat intervention $\theta$.
+(B) Increase in the estimated amount of early transmission decreases the estimated epidemic strength \RR\ as well as the estimated strength of a test-and-treat intervention \DIFdelbeginFL %DIFDELCMD < \Rhat%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\theta$}\DIFaddendFL .
 (C) The assumed hazard for the test-and-treat intervention. 
 The dashed line shows the corresponding effective speed of the intervention (from \eqref{speedMean}) assuming 23\% early transmission.
-(D) The estimated amount of early transmission has little effect on the effective speed of intervention $\phi$, and none on the initial speed of the epidemic estimated from incidence data \rr.
+(D) The estimated amount of early transmission has little effect on the effective speed of intervention \DIFdelbeginFL %DIFDELCMD < \rhat%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\phi$}\DIFaddendFL , and none on the \DIFaddbeginFL \DIFaddFL{initial }\DIFaddendFL speed of the epidemic estimated from incidence data \rr.
 Circles indicate the baseline scenario.
 Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
 }
@@ -347,10 +447,16 @@ Pre-symptomatic transmission is likely to be hard to detect, and therefore hard 
 Thus, it might be supposed that an increase in the estimated importance of pre-symptomatic transmission would lead to an increase in the estimated difficulty of control.
 
 A generation-interval perspective \cite{park2019practical} can be used to challenge this view. 
-More early transmission, for a given value of observed \rpre, means shorter generation intervals and therefore less transmission per individual --- that is, a lower value of \Rpre. Thus, although earlier transmission could make intervention less effective, it also means that less intervention may be necessary. For interventions like lockdowns, which are generally assumed to affect everyone roughly equally, the strength-based perspective thus gives a clear (and somewhat surprising) answer: more early transmission means we will conclude that non-targeted interventions are \emph{more} effective.
+More early transmission, for a given value of observed \DIFdelbegin %DIFDELCMD < \rr%%%
+\DIFdel{, means }%DIFDELCMD < {%%%
+\DIFdelend \DIFaddbegin \rpre\DIFadd{, means }\DIFaddend shorter generation intervals and therefore \DIFdelbegin %DIFDELCMD < } %%%
+\DIFdelend less transmission per individual --- that is, a lower value of \DIFdelbegin %DIFDELCMD < \RR%%%
+\DIFdelend \DIFaddbegin \Rpre\DIFaddend . Thus, although earlier transmission could make intervention less effective, it also means that less intervention may be necessary. For interventions like lockdowns, which are generally assumed to affect everyone roughly equally, the strength-based perspective thus gives a clear (and somewhat surprising) answer: more early transmission means we will conclude that non-targeted interventions are \emph{more} effective.
 
-For interventions which target infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission. 
-More early transmission does not change our estimate of the initial speed of the epidemic \rpre, which is inferred from data. But it does change our estimate of the \emph{effective} speed of a given control curve. 
+For interventions which \DIFdelbegin %DIFDELCMD < {%%%
+\DIFdel{target }%DIFDELCMD < } %%%
+\DIFdelend \DIFaddbegin \DIFadd{target }\DIFaddend infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission. 
+More early transmission does not change our estimate of the \DIFaddbegin \DIFadd{initial }\DIFaddend speed of the epidemic \DIFdelbegin \DIFdel{, but }\DIFdelend \DIFaddbegin \rpre\DIFadd{, which is inferred from data. But }\DIFaddend it does change our estimate of the \emph{effective} speed of a given control curve. 
 This is because more early transmission gives more weight in the calculation of effective speed ($\phi$) to the early period of infection.
 
 If control depends on identifying cases from symptoms, we might expect the hazard of control to increase through time. In this case, more early transmission will give more weight to the low effectiveness of control early in infection: thus, the effective speed of control will be lower than originally thought, and control will be harder.
@@ -395,7 +501,7 @@ There is also a link between the duality of these perspectives and the evolution
 
 The importance of speed-based perspectives are still rarely recognized in the case of infectious disease, however. 
 Responses to the 2014 Ebola Outbreak in West Africa and the recent COVID-19 outbreak show an over-emphasis on strength at the expense of speed:   
-during the early phases of both outbreaks, many disease modelers tried to estimate \Ro\ but overlooked \ro.
+during the early phases of both outbreaks, many disease modelers tried to estimate \DIFdelbegin \DIFdel{$\mathcal R_0$ but overlooked $r$}\DIFdelend \DIFaddbegin \Ro\DIFadd{\ but overlooked }\ro\DIFaddend .
 For example, only 1 out of 7 preliminary analyses of the COVID-19 outbreak that were published as preprints between January 23--26, 2020 reported the doubling time of an epidemic \citep{bedfordncov, imaincov, liuncov, majumderncov, readncov, riouncov, zhaoncov}.
 Subsequent studies then relied on strength-based frameworks to evaluate the efficacy of speed-like interventions, such as contact tracing \cite{hellewell2020feasibility,kretzschmar2020impact,kucharski2020contact}, with a few exceptions \cite{ferretti2020quantifying}.
 We suggest that infectious disease modelers should be aware of the complementarity of these two frameworks when analyzing disease outbreaks.
