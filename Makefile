@@ -51,7 +51,7 @@ msrepo = https://github.com/dushoff
 ms = makestuff
 
 Ignore += makestuff
-Makefile: makestuff/Makefile
+Makefile: makestuff/Makefile code/makestuff/Makefile
 makestuff/Makefile:
 	git clone $(msrepo)/makestuff
 	ls $@
