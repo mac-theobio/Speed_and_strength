@@ -288,15 +288,15 @@ The black circle indicates the baseline scenario.
 \end{figure}
 
 The infection kernel is shown in (\figref{example}A) for our baseline value of  
-$\tsub{p}{early} = 0.23$. We assume that the initial speed of the epidemic is $\ro=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\Ro$ would produce this rate of growth.
-When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \Ro\ decreases (\figref{example}C).
+$\tsub{p}{early} = 0.23$. We assume that the pre-intervention speed of the epidemic is $\rpre=0.452\,\mathrm{year}^{-1}$(\figref{example}B), and ask what value of $\Rpre$ would produce this rate of growth.
+When transmission is fast, (i.e., when \pEarly\ is large), individuals don't need to transmit as much to achieve this speed, so the estimated value of \Rpre\ decreases (\figref{example}C).
 Therefore, as \pEarly\ gets smaller, we expect stronger intervention to be required in order to control the disease.
-Here we are estimating the ``basic'' reproductive number \Ro, using information about the initial rate of spread \ro, as a proxy for the difficulty of eventually eliminating HIV. 
+Here we are estimating the pre-intervention reproductive number \Rpre, using information about the initial rate of spread \rpre, as a proxy for the difficulty of eventually eliminating HIV. 
 
 We compare two different possible intervention strategies to shed light on the strength and speed decompositions.
 First, we consider a condom intervention that reduces HIV transmission by an average of approximately 75\%.
 Assuming that condoms act as a physical barrier, and that condom use will, on average, remain roughly constant through time, it is reasonable to model the multiplicative reduction in transmission due to condom use as constant across the course of infection: $\tsub{L}{condom} = 1/(1-0.75) = 4$ (\figref{condom}A).
-The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic \Ro\ decreases as the proportion of early transmission \pEarly\ increases (\figref{condom}B).
+The estimated strength of such an intervention is simply the average of $\tsub{L}{condom}$, i.e., $\theta=4$, whereas the estimated strength of the epidemic \Rpre\ decreases as the proportion of early transmission \pEarly\ increases (\figref{condom}B).
 Thus, the predicted effectiveness of the condom intervention will depend strongly on our estimate of the importance of early transmission: if the amount of early transmission is low, we infer that disease spread is too strong to be controlled completely by our intervention.
 
 \begin{figure}[!t]
@@ -304,7 +304,7 @@ Thus, the predicted effectiveness of the condom intervention will depend strongl
 \caption{
 \textbf{Evaluating a condom intervention using strength-based decomposition.}
 (A) Condom use is thought to reduce probability of transmission by a similar factor throughout the course of infection; thus the multiplicative reduction $\tsub{L}{condom}$ due to condom use is constant across the course of infection.
-(B) The estimated amount of early transmission affects estimated epidemic strength \Ro, but not intervention strength $\theta$ of a condom-based intervention.
+(B) The estimated amount of early transmission affects estimated epidemic strength \Rpre, but not intervention strength $\theta$ of a condom-based intervention.
 The black and red circles indicate the baseline scenario.
 }
 \figlab{condom}
@@ -315,12 +315,12 @@ The black and red circles indicate the baseline scenario.
 \caption{
 \textbf{Evaluating a test-and-treat intervention using strength- and speed-based decomposition.}
 (A) The strength of the test-and-treat intervention (calculated from the assumed hazard, (C)). The dashed line shows the corresponding effective strength of the intervention (from \eqref{strengthMean}) assuming 23\% early transmission.
-(B) Increase in the estimated amount of early transmission decreases the estimated epidemic strength \RR\ as well as the estimated strength of a test-and-treat intervention $\theta$.
+(B) Increase in the estimated amount of early transmission decreases the estimated epidemic strength \Rpre\ as well as the estimated strength $\theta$ of a test-and-treat intervention.
 (C) The assumed hazard for the test-and-treat intervention. 
 The dashed line shows the corresponding effective speed of the intervention (from \eqref{speedMean}) assuming 23\% early transmission.
-(D) The estimated amount of early transmission has little effect on the effective speed of intervention $\phi$, and none on the initial speed of the epidemic estimated from incidence data \rr.
+(D) The estimated amount of early transmission has little effect on the effective speed of intervention $\phi$, and none on the pre-intervention speed $\rpre$ of the epidemic estimated from incidence data.
 Circles indicate the baseline scenario.
-Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- K f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $K = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
+Test-and-treat intervention is modeled phenomenologically: $\tsub{L}{test}(\tau) = \exp\left(\int_0^\tau \tsub{h}{test}(\sigma) d\sigma \right)$ and $\tsub{h}{test}(\tau) = \tsub{h}{max} (1 - \exp(- k f(\tau)))$, where $f(\tau)$ is a gamma probability density function with a mean of $1$ year and a shape parameter of 2, $k = 4/\max(f(\tau))$, and $\tsub{h}{max} = 2\,\mathrm{year}^{-1}$.
 }
 \figlab{test}
 \end{figure}
