@@ -1,5 +1,4 @@
-
-## This is the speedstrength code subdirectory
+## This is the speedstrength code subdirectory (Public)
 
 current: target
 -include target.mk
