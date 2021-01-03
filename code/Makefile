@@ -49,7 +49,9 @@ hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda
 
 ######## coronavirus
 
-coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda units.rda
+## coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda units.rda
+
+coronaexample.pdf: coronaexample.Rout ;
 
 ######################################################################
 
