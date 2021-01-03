@@ -32,10 +32,12 @@ head.txt: speedstrength.tex abstract.pl
 
 ## October revision
 october: speedstrength.tex.1d9ad422e25.oldfile supp.tex.1d9ad422e25.oldfile
+dushoff: speedstrength.tex.cb8e114.oldfile
+
+Ignore += speedstrength_olddiff.tex
 
 testsetup: october
 	cd code && $(MAKE) Makefile
-Ignore += $(wildcard *olddiff*)
 ## speedstrength_olddiff.pdf: speedstrength.tex
 
 ######################################################################
