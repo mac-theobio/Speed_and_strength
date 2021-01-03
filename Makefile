@@ -35,6 +35,7 @@ october: speedstrength.tex.1d9ad422e25.oldfile supp.tex.1d9ad422e25.oldfile
 
 testsetup: october
 	cd code && $(MAKE) Makefile
+Ignore += $(wildcard *olddiff*)
 ## speedstrength_olddiff.pdf: speedstrength.tex
 
 ######################################################################
