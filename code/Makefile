@@ -10,6 +10,8 @@ vim_session:
 
 ######################################################################
 
+## Cribbing; delete soon? 2021 Jan 03 (Sun)
+
 %.csv: ../speedstrength/dotdir/code/%.csv
 	$(MV) $< $@
 
@@ -49,7 +51,7 @@ hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda
 
 ######## coronavirus
 
-## coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda units.rda
+coronaexample.Rout: coronaexample.R
 
 coronaexample.pdf: coronaexample.Rout ;
 
