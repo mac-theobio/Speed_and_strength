@@ -19,7 +19,7 @@ vim_session:
 	$(MV) $< $@
 
 Sources += $(wildcard *.R)
-automatic_makeR = defined
+autopipeR = defined
 
 ######################################################################
 
@@ -51,9 +51,12 @@ hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda
 
 ######## coronavirus
 
-coronaexample.Rout: coronaexample.R
-
+coronaexample.Rout: coronaexample.R coronafuns.rda
 coronaexample.pdf: coronaexample.Rout ;
+
+## Daniel's box version (phases of infection)
+coronaphase.Rout: coronaphase.R
+coronaphase.pdf: coronaphase.Rout ;
 
 ######################################################################
 
@@ -61,7 +64,7 @@ coronaexample.pdf: coronaexample.Rout ;
 legacy = coronafuns kernel data HIVfuns
 legacytargets = $(legacy:%=%.Rout)
 $(legacytargets): %.Rout: %.R
-	$(run-R)
+	$(wrapR)
 
 ######################################################################
 
@@ -77,7 +80,7 @@ makestuff/Makefile:
 
 -include makestuff/os.mk
 
--include makestuff/makeR.mk
+-include makestuff/pipeR.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
