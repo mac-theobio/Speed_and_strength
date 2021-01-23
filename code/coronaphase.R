@@ -2,8 +2,11 @@ library(ggplot2); theme_set(theme_bw())
 library(dplyr)
 library(gridExtra)
 
+## Next step: generalize. Calculate distributions by: convolving, cumulating and then differencing.
+
 r <- log(2)/3
 
+## Assume three equal lag kernels; we move from exposed to pre-symptomatic to symptomatic, p is relative contagiousness of pre-symptomatics
 genfun <- function(x, p=0.3, duration=2.5) {
   p * (- pgamma(x, 4, rate=2/duration) + pgamma(x, 2, rate=2/duration))/duration +
     (1-p) * (- pgamma(x, 6, rate=2/duration) + pgamma(x, 4, rate=2/duration))/duration
