@@ -370,9 +370,14 @@ But it changes our estimate of the \emph{effective} speed of a given interventio
 For symptom-based interventions (e.g., self-isolation of symptomatic cases), the hazard of intervention will increase over time as individuals have higher probability of developing symptoms later on---therefore, more early transmission causes the speed of intervention to decrease and makes the control harder.
 For infection-based interventions (e.g., contact tracing), the hazard of intervention will start high and decrease as cases are most likely to be identified early on---in this case, more early transmission causes the speed of intervention to increase.
 
-In \figref{covid}, we provide a concrete example using a compartmental model, which assumes that infected individuals progress sequentially through three stages of infection: exposed, pre-symptomatic, and symptomatic (see Supplementary Materials for details)---pre-symptomatic and symptomatic individuals can transmit infection at rates $\beta_p$ and $\beta_s$ for durations of $D_p$ and $D_s$ days, respectively.
-Here, we see that increasing the amount of pre-intervention proportion of pre-symptomatic transmission ($p=\beta_p D_p/(\beta_p D_p + \beta_s  D_s)$) shortens the generation time (\figref{covid}A) and reduces the pre-intervention epidemic strength (\figref{covid}B). But it does not change the pre-intervention epidemic speed (\figref{covid}C).
-\figref{covid}B--C further illustrate that the amount of pre-symptomatic transmission have opposite effects on the effectiveness of symptom-based intervention---modeled as a constant hazard applied to individuals in symptomatic compartments---and infection-basde intervention---modeled in a similar way as the test-and-treat intervention for HIV.
+In \figref{covid}, we provide a concrete example using a compartmental model, which assumes that infected individuals progress sequentially through three stages of infection: exposed, pre-symptomatic, and symptomatic (see Supplementary Materials for details).
+We assume that pre-symptomatic and symptomatic individuals can transmit infection at rates $\beta_p$ and $\beta_s$ for durations of $D_p$ and $D_s$ days, respectively;
+then, the pre-intervention proportion of pre-symptomatic transmission is given by:
+\begin{equation}
+p=\beta_p D_p/(\beta_p D_p + \beta_s  D_s).
+\end{equation}
+Here, we see that increasing the proportion of pre-symptomatic transmission $p$ shortens the generation time (\figref{covid}A) and reduces the pre-intervention epidemic strength (\figref{covid}B). But it does not change the pre-intervention epidemic speed (\figref{covid}C).
+\figref{covid}B--C further confirm that the proportion of pre-symptomatic transmission $p$ has opposite effects on the effectiveness of symptom-based intervention---modeled as a constant hazard applied to individuals in symptomatic compartments---and infection-basde intervention---modeled in a similar way as the test-and-treat intervention for HIV.
 
 \section{Discussion}
 
