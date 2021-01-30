@@ -10,6 +10,8 @@ vim_session:
 
 ######################################################################
 
+## Cribbing; delete soon? 2021 Jan 03 (Sun)
+
 %.csv: ../speedstrength/dotdir/code/%.csv
 	$(MV) $< $@
 
@@ -17,7 +19,7 @@ vim_session:
 	$(MV) $< $@
 
 Sources += $(wildcard *.R)
-automatic_makeR = defined
+autopipeR = defined
 
 ######################################################################
 
@@ -49,7 +51,12 @@ hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda
 
 ######## coronavirus
 
-coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda units.rda
+coronaexample.Rout: coronaexample.R coronafuns.rda
+coronaexample.pdf: coronaexample.Rout ;
+
+## Daniel's box version (phases of infection)
+coronaphase.Rout: coronaphase.R
+coronaphase.pdf: coronaphase.Rout ;
 
 ######################################################################
 
@@ -57,7 +64,7 @@ coronaexample.Rout: coronaexample.R coronafuns.rda kernel.rda units.rda
 legacy = coronafuns kernel data HIVfuns
 legacytargets = $(legacy:%=%.Rout)
 $(legacytargets): %.Rout: %.R
-	$(run-R)
+	$(wrapR)
 
 ######################################################################
 
@@ -73,7 +80,7 @@ makestuff/Makefile:
 
 -include makestuff/os.mk
 
--include makestuff/makeR.mk
+-include makestuff/pipeR.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
