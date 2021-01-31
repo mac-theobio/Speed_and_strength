@@ -34,16 +34,16 @@ head.txt: speedstrength.tex abstract.pl
 october: speedstrength.tex.1d9ad422e25.oldfile supp.tex.1d9ad422e25.oldfile
 dushoff: speedstrength.tex.cb8e114.oldfile
 
-Ignore += speedstrength_olddiff.tex
-
 testsetup: october
 	cd code && $(MAKE) Makefile
-## speedstrength_olddiff.pdf: speedstrength.tex
+speedstrength_olddiff.pdf: speedstrength.tex
+oldreset:
+	$(RM) *_olddiff.tex
 
 ######################################################################
 
 ## Automake
-colddirs += code
+hotdirs += code
 
 ######################################################################
 

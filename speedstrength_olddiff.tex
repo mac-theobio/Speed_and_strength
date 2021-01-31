@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL speedstrength.tex.cb8e114.oldfile   Sun Jan  3 12:28:30 2021
-%DIF ADD speedstrength.tex                   Sun Jan  3 14:38:10 2021
+%DIF ADD speedstrength.tex                   Sun Jan 31 17:57:43 2021
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{grffile}
@@ -440,57 +440,40 @@ Thus, it might be supposed that an increase in the estimated importance of pre-s
 \DIFaddbegin \begin{figure}
 \includegraphics[width=\textwidth]{code/coronaexample.pdf}
 \caption{
-\textbf{\DIFaddFL{Impact of pre-symptomatic transmission on the infection kernel of COVID-19.}}
+\textbf{\DIFaddFL{Pre-symptomatic transmission and interventions against COVID-19.}}
 \DIFaddFL{(A) Infection kernel of COVID-19 is modeled mechanistically using gamma-distributed latent, presymptomatic, and symptomatic stages, each with shape parameter of 2 and mean of 2.5 days.
-(B) Corresponding pre-intervention reproduction numbers are calculated assuming a pre-intervention doubling time of 3 days (i.e., $r = \log(2)/3\,\textrm{days}^{-1}$).
+(B) Strengths of epidemic/intervention are calculated assuming a pre-intervention doubling time of 3 days (i.e., $r \approx 0.231/\mathrm{day}$).
+(C) Corresponding speeds of epidemic/intervention are calculated.
+The baseline values are set such that both symptom-based and infection-based interventions have equal intervention strength/speed at $p=0.25$.
 }}
 \figlab{covid}
 \end{figure}
 
 \DIFaddend A generation-interval perspective \cite{park2019practical} can be used to challenge this view.
-\DIFdelbegin \DIFdel{More early transmission }\DIFdelend \DIFaddbegin \DIFadd{In order to understand the impact of pre-symptomatic transmission on control of COVID-19, we assume that a newly infected individual go through latent, pre-symptomatic, and symptomatic stages for durations of $D_e$}\DIFaddend , \DIFdelbegin \DIFdel{for a given value of observed }%DIFDELCMD < \rpre%%%
-\DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{$D_p$, and $D_s$ days, respectively.
-During pre-symptomatic and symptomatic stages, they transmit infection at rate $\beta_p$ and $\beta_s$, respectively.
-In this case, the pre-intervention infection kernel can be written as:
-}\begin{equation}
-\DIFadd{\Kpre(\tau) = \beta_p \mathbb{P}(D_e \leq \tau < D_e + D_p) + \beta_s \mathbb{P}(D_e + D_s \leq \tau < D_e + D_p + D_s).
-}\end{equation}
-\DIFadd{Integrating across $\tau$, the pre-intervention reproduction number is given by:
-}\begin{equation}
-\DIFadd{\Rpre = \beta_p \mathbb{E}(D_p) + \beta_s \mathbb{E}(D_s).
-}\end{equation}
-\DIFadd{The pre-intervention generation-interval distribution is given by:
-}\begin{equation}
-\DIFadd{\gpre(\tau) = \frac{p \, \mathbb{P}(D_e \leq \tau < D_e + D_p)}{\mathbb{E}(D_p)} + \frac{(1-p) \, \mathbb{P}(D_e + D_s \leq \tau < D_e + D_p + D_s)}{\mathbb{E}(D_s)},
-}\end{equation}
-\DIFadd{where $p = \beta_p E(D_p)/\Rpre$ represents the amount of pre-symptomatic transmission.
-Therefore, more early transmission (higher $p$), }\DIFaddend means shorter generation intervals and\DIFdelbegin \DIFdel{therefore }\DIFdelend \DIFaddbegin \DIFadd{, for a given value of observed }\rpre\DIFadd{, }\DIFaddend less transmission per individual --- that is, a lower value of \Rpre \DIFaddbegin \DIFadd{(\figref{covid})}\DIFaddend .
+More early transmission \DIFaddbegin \DIFadd{means shorter generation intervals and}\DIFaddend , for a given value of observed \rpre, \DIFdelbegin \DIFdel{means shorter generation intervals and therefore }\DIFdelend less transmission per individual --- that is, a lower value of \Rpre.
 Thus, although earlier transmission could make intervention less effective, it also means that less intervention may be necessary. For interventions like lockdowns, which are generally assumed to affect everyone roughly equally, the strength-based perspective thus gives a clear (and somewhat surprising) answer: more early transmission means we will conclude that non-targeted interventions are \emph{more} effective.
 
 For interventions which target infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission.
-More early transmission does not change our estimate of the \DIFdelbegin \DIFdel{initial }\DIFdelend \DIFaddbegin \DIFadd{pre-intervention }\DIFaddend speed of the epidemic \rpre, which is inferred from data. But it \DIFdelbegin \DIFdel{does change }\DIFdelend \DIFaddbegin \DIFadd{changes }\DIFaddend our estimate of the \emph{effective} speed of a given \DIFdelbegin \DIFdel{control curve. 
+More early transmission does not change our estimate of the \DIFdelbegin \DIFdel{initial }\DIFdelend \DIFaddbegin \DIFadd{pre-intervention }\DIFaddend speed of the epidemic \rpre, which is inferred from data. 
+But it \DIFdelbegin \DIFdel{does change }\DIFdelend \DIFaddbegin \DIFadd{changes }\DIFaddend our estimate of the \emph{effective} speed of a given \DIFdelbegin \DIFdel{control curve. 
 This is }\DIFdelend \DIFaddbegin \DIFadd{intervention }\DIFaddend because more early transmission gives more weight in the calculation of effective speed ($\phi$) to the early period of infection.
+\DIFdelbegin %DIFDELCMD < 
 
-If control depends on identifying cases from symptoms, \DIFdelbegin \DIFdel{we might expect the }\DIFdelend \DIFaddbegin \DIFadd{the post-intervention kernel can be modeled as:
+%DIFDELCMD < %%%
+\DIFdel{If control depends on identifying casesfrom symptoms, we might expect }\DIFdelend \DIFaddbegin \DIFadd{For symptom-based interventions (e.g., self-isolation of symptomatic cases), }\DIFaddend the hazard of \DIFdelbegin \DIFdel{control to increase through time . In this case}\DIFdelend \DIFaddbegin \DIFadd{intervention will increase over time as individuals have higher probability of developing symptoms later on---therefore}\DIFaddend , more early transmission \DIFdelbegin \DIFdel{will give more weight to the low effectiveness of control early in infection: thus, the effective speed of control will be lower than originally thought, and control will be harder.
+Conversely, if control is mostly done by tracingtravellers and contacts, cases might be }\DIFdelend \DIFaddbegin \DIFadd{causes the speed of intervention to decrease and makes the control harder.
+For infection-based interventions (e.g., contact tracing), the hazard of intervention will start high and decrease as cases are }\DIFaddend most likely to be identified early \DIFdelbegin \DIFdel{on: in this casemore weight on the early hazard of control will mean a faster effective speed.
+Thus, control will be easier than originally thought}\DIFdelend \DIFaddbegin \DIFadd{on---in this case, more early transmission causes the speed of intervention to increase.
+}
+
+\DIFadd{In \figref{covid}, we provide a concrete example using a compartmental model, which assumes that infected individuals progress sequentially through three stages of infection: exposed, pre-symptomatic, and symptomatic (see Supplementary Materials for details).
+We assume that pre-symptomatic and symptomatic individuals can transmit infection at rates $\beta_p$ and $\beta_s$ for durations of $D_p$ and $D_s$ days, respectively;
+then, the pre-intervention proportion of pre-symptomatic transmission is given by:
 }\begin{equation}
-\DIFadd{\begin{aligned}
-\Kpost(\tau) &= \frac{p \Rpre \, \mathbb{P}(D_e \leq \tau < D_e + D_p)}{\mathbb{E}(D_p)}\\
-&+ \left(\frac{(1-p) \Rpre \, \mathbb{P}(D_e + D_s \leq \tau < D_e + D_p + D_s)}{\mathbb{E}(D_s)}\right) \exp\left(-\int_0^\tau h_s(\sigma) d\sigma\right),
-\eqlab{symptom}
-\end{aligned}
+\DIFadd{p=\beta_p D_p/(\beta_p D_p + \beta_s  D_s).
 }\end{equation}
-\DIFadd{where the }\DIFaddend hazard of control \DIFaddbegin \DIFadd{$h_s$ is likely }\DIFaddend to increase through time. 
-In this case, more early transmission will give more weight to the low effectiveness of control early in infection: thus, the effective speed of control will be lower than originally thought, and control will be harder.
-\DIFaddbegin \DIFadd{It is also clear from \eqref{symptom} that as $p$ increases, the amount of transmission reduced by the control will decrease.
-}\DIFaddend Conversely, if control is mostly done by tracing travellers and contacts, \DIFdelbegin \DIFdel{cases might be }\DIFdelend \DIFaddbegin \DIFadd{we can write
-}\begin{equation}
-\DIFadd{\Kpost(\tau) = \Kpre(\tau) \exp\left(-\int_0^\tau h_i(\sigma) d\sigma\right),
-\eqlab{trace}
-}\end{equation}
-\DIFadd{where $h_i$ is likely to start high and decrease as cases are }\DIFaddend most likely to be identified early on\DIFdelbegin \DIFdel{: in }\DIFdelend \DIFaddbegin \DIFadd{. 
-In }\DIFaddend this case more weight on the early hazard of control will mean a faster effective speed. 
-Thus, control will be easier than originally thought\DIFaddbegin \DIFadd{.
-Once again, it is clear from \eqref{trace} that we can control the spread as long of $h_i$ is sufficiently high (i.e., the speed of intervention is sufficiently fast), regardless of the amount of pre-symptomatic transmission $p$}\DIFaddend .
+\DIFadd{Here, we see that increasing the proportion of pre-symptomatic transmission $p$ shortens the generation time (\figref{covid}A) and reduces the pre-intervention epidemic strength (\figref{covid}B). But it does not change the pre-intervention epidemic speed (\figref{covid}C).
+\figref{covid}B--C further confirm that the proportion of pre-symptomatic transmission $p$ has opposite effects on the effectiveness of symptom-based intervention---modeled as a constant hazard applied to individuals in symptomatic compartments---and infection-basde intervention---modeled in a similar way as the test-and-treat intervention for HIV}\DIFaddend .
 
 \section{Discussion}
 
