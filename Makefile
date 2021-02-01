@@ -38,7 +38,7 @@ testsetup: october
 	cd code && $(MAKE) Makefile
 speedstrength_olddiff.pdf: speedstrength.tex
 oldreset:
-	$(RM) *_olddiff.tex
+	git rm *_olddiff.tex
 
 ######################################################################
 
