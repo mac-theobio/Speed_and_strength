@@ -152,6 +152,25 @@ infection_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
 }) %>%
   bind_rows
 
+lockdown_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
+  Rtmp <- rRexample$strength[rRexample$p==p]
+  betaptmp <- Rtmp * p/dbase
+  betastmp <- Rtmp * (1-p)/dbase
+  
+  rpost <- optim(1, function(rr) (integrate(f=function(z) Rtmp * genfun(z, p=p)/Rbase * exp(-rr * z),
+                                            lower=0, upper=Inf)[[1]] - 1)^2,
+                 lower=-0.2,
+                 upper=0.2,
+                 method="Brent")$par 
+  
+  data.frame(
+    p=p,
+    speed=r-rpost,
+    type="Lockdown"
+  )
+}) %>%
+  bind_rows
+
 g1 <- ggplot(genexample) +
   geom_line(aes(time, genden, lty=p)) +
   scale_x_continuous("Generation time (days)") +
@@ -167,6 +186,9 @@ g1 <- ggplot(genexample) +
 
 strengthall <- bind_rows(
   rRexample,
+  data.frame(
+    p=seq(0.2, 0.8, by=0.01), strength=Rbase, type="Lockdown"
+  ),
   symptom_strength,
   infection_strength
 )
@@ -176,18 +198,20 @@ g2 <- ggplot(strengthall) +
   geom_point(x=0.25, y=Rbase, size=2) +
   scale_x_continuous("Proportion of pre-symptomatic transmission, p") +
   scale_y_continuous("Strength of epidemic/intervention") +
-  scale_color_manual(values=c("black", "red", "blue")) +
+  scale_color_manual(values=c("black", "orange", "red", "blue")) +
+  scale_linetype_manual(values=1:4) +
   ggtitle("B") +
   theme(
     legend.title=element_blank(),
     panel.grid = element_blank(),
     panel.border = element_blank(),
     axis.line = element_line(),
-    legend.position = c(0.8, 0.85)
+    legend.position = "top"
   )
 
 speedall <- bind_rows(
   data.frame(p=seq(0.2, 0.8, by=0.01), speed=r, type="Epidemic"),
+  lockdown_speed,
   symptom_speed,
   infection_speed
 )
@@ -197,7 +221,8 @@ g3 <- ggplot(speedall) +
   geom_point(x=0.25, y=r, size=2) +
   scale_x_continuous("Proportion of pre-symptomatic transmission, p") +
   scale_y_continuous("Speed of epidemic/intervention (1/day)") +
-  scale_color_manual(values=c("black", "red", "blue")) +
+  scale_color_manual(values=c("black", "orange", "red", "blue")) +
+  scale_linetype_manual(values=1:4) +
   ggtitle("C") +
   theme(
     legend.title=element_blank(),
