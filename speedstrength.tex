@@ -357,28 +357,32 @@ Thus, it might be supposed that an increase in the estimated importance of pre-s
 (B) Strengths of epidemic/intervention are calculated assuming a pre-intervention doubling time of 3 days (i.e., $r \approx 0.231/\mathrm{day}$).
 (C) Corresponding speeds of epidemic/intervention are calculated.
 The baseline values are set such that both symptom-based and infection-based interventions have equal intervention strength/speed at $p=0.25$.
+The symptom-based intervention is modeled as a constant hazard applied to individuals in symptomatic compartments.
+The infection-basde intervention is modeled phenomenologically in a similar way as the test-and-treat intervention for HIV.
+See Supplementary Materials for details.
 }
 \figlab{covid}
 \end{figure}
 
 A generation-interval perspective \cite{park2019practical} can be used to challenge this view.
-More early transmission means shorter generation intervals and, for a given value of observed \rpre, less transmission per individual --- that is, a lower value of \Rpre.
-Thus, although earlier transmission could make intervention less effective, it also means that less intervention may be necessary. For interventions like lockdowns, which are generally assumed to affect everyone roughly equally, the strength-based perspective thus gives a clear (and somewhat surprising) answer: more early transmission means we will conclude that non-targeted interventions are \emph{more} effective.
-
-For interventions which target infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission.
-More early transmission does not change our estimate of the pre-intervention speed of the epidemic \rpre, which is inferred from data. 
-But it changes our estimate of the \emph{effective} speed of a given intervention because more early transmission gives more weight in the calculation of effective speed ($\phi$) to the early period of infection.
-For symptom-based interventions (e.g., self-isolation of symptomatic cases), the hazard of intervention will increase over time as individuals have higher probability of developing symptoms later on---therefore, more early transmission causes the speed of intervention to decrease and makes the control harder.
-For infection-based interventions (e.g., contact tracing), the hazard of intervention will start high and decrease as cases are most likely to be identified early on---in this case, more early transmission causes the speed of intervention to increase.
-
-In \figref{covid}, we provide a concrete example using a compartmental model, which assumes that infected individuals progress sequentially through three stages of infection: exposed, pre-symptomatic, and symptomatic (see Supplementary Materials for details).
-We assume that pre-symptomatic and symptomatic individuals can transmit infection at rates $\beta_p$ and $\beta_s$ for durations of $D_p$ and $D_s$ days, respectively;
+Here, we use a compartmental model as a concrete example (see Supplementary Materials for details); however, the intuitions we derive are not specific to the example.
+The model assumes that infected individuals progress sequentially through three stages of infection: exposed, pre-symptomatic, and symptomatic.
+We assume that pre-symptomatic and symptomatic individuals can transmit infection at rates $\beta_p$ and $\beta_s$ for average durations of $D_p$ and $D_s$ days, respectively;
 then, the pre-intervention proportion of pre-symptomatic transmission is given by:
 \begin{equation}
 p=\beta_p D_p/(\beta_p D_p + \beta_s  D_s).
 \end{equation}
-Here, we see that increasing the proportion of pre-symptomatic transmission $p$ shortens the generation time (\figref{covid}A) and reduces the pre-intervention epidemic strength (\figref{covid}B). But it does not change the pre-intervention epidemic speed (\figref{covid}C).
-\figref{covid}B--C further confirm that the proportion of pre-symptomatic transmission $p$ has opposite effects on the effectiveness of symptom-based intervention---modeled as a constant hazard applied to individuals in symptomatic compartments---and infection-basde intervention---modeled in a similar way as the test-and-treat intervention for HIV.
+We then quantify the effect of the proportion of pre-symptomatic transmission on different intervention strategies.
+
+More early transmission means shorter generation intervals (\figref{covid}A) and, for a given value of observed \rpre, less transmission per individual --- that is, a lower value of \Rpre (\figref{covid}B).
+Thus, although earlier transmission could make intervention less effective, it also means that less intervention may be necessary. 
+For interventions like lockdowns, which are generally assumed to affect everyone roughly equally, the strength-based perspective thus gives a clear (and somewhat surprising) answer: more early transmission means we will conclude that non-targeted interventions are \emph{more} effective because the effectiveness of intervention is not affected by the amount of early transmission (\figref{covid}B).
+
+For interventions which target infected individuals, like contact tracing or test-based isolation, the speed-based paradigm provides clearer insight into the likely effects of early transmission (\figref{covid}C).
+More early transmission does not change our estimate of the pre-intervention speed of the epidemic \rpre, which is inferred from data. 
+But it changes our estimate of the \emph{effective} speed of a given intervention because more early transmission gives more weight in the calculation of effective speed ($\phi$) to the early period of infection.
+For symptom-based interventions (e.g., self-isolation of symptomatic cases), the hazard of intervention will increase over time as individuals have higher probability of developing symptoms later on---therefore, more early transmission causes the speed of intervention to decrease and makes the control harder.
+For infection-based interventions (e.g., contact tracing), the hazard of intervention will start high and decrease as cases are most likely to be identified early on---in this case, more early transmission causes the speed of intervention to increase.
 
 \section{Discussion}
 
