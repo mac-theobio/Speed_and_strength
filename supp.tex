@@ -32,9 +32,13 @@
 \newcommand{\Ro}{\Rx{0}}
 \newcommand{\RR}{\ensuremath{{\mathcal R}}}
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
+\newcommand{\Rpost}{\Rx{post}}
 
 \newcommand{\rr}{\ensuremath{{r}}}
 \newcommand{\rhat}{\ensuremath{{\hat\rr}}}
+\newcommand{\rx}[1]{\ensuremath{\rr_{\mathrm{#1}}}}
+\newcommand{\rpre}{\rx{pre}}
+\newcommand{\rpost}{\rx{post}}
 
 \newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
 \newcommand{\pEarly}{\ensuremath{\tsub{p}{early}}}
@@ -68,21 +72,53 @@ Then, the population-level kernel for an average infected individual is given by
 K(\tau) = \beta_p P(D_e \leq \tau < D_e + D_p) + \beta_s P(D_e + D_p \leq \tau < D_e + D_p + D_s),
 \end{equation}
 where $P$ represents probability.
-Dividing the population-level kernel 
+Dividing the population-level kernel by the reproduction number $\Ro = \beta_p E(D_p) + \beta_s E(D_s)$ yields the generation-interval distribution:
+\begin{equation}
+g(\tau) = \frac{p P(D_e \leq \tau < D_e + D_p)}{E(D_p)} + \frac{(1-p) P(D_e + D_p \leq \tau < D_e + D_p + D_s)}{E(D_s)},
+\end{equation}
+where $p = \beta_p E(D_p)/\Ro$ represents the proportion of pre-symptomatic transmission.
  
-with each stage consisting of two sub-compartments, the corresponding set of differential equations is given by:
+We consider a specific example in which each stage consists of two sub-compartments.
+We assume that the mean duration of each stage of infection is given by $1/\sigma$, $1/\gamma_p$, and $1/\gamma_s$, respectively.
+Then, the corresponding set of differential equations is given by:
 \begin{equation}
 \begin{aligned}
 \frac{dS}{dt} &= - \left(\beta_p (I_{p1} + I_{p2}) + \beta_s (I_{s1} + I_{s2})\right) S \\
 \frac{dE_1}{dt} &=   \left(\beta_p (I_{p1} + I_{p2}) + \beta_s (I_{s1} + I_{s2})\right) S - 2 \sigma E_1 \\
 \frac{dE_2}{dt} &= 2 \sigma E_1 - 2 \sigma E_2\\
-\frac{dI_{p1}}{dt} &= 2 \sigma E_2 - 2 \sigma E_2\\
-\frac{dI_{p2}}{dt} &= - \beta S I\\
-\frac{dI_{s1}}{dt} &= - \beta S I\\
-\frac{dI_{s2}}{dt} &= - \beta S I\\
-\frac{dR}{dt} &= - \beta S I\\
+\frac{dI_{p1}}{dt} &= 2 \sigma E_2 - 2 \gamma_p I_{p1}\\
+\frac{dI_{p2}}{dt} &= 2 \gamma_p I_{p1} - 2 \gamma_p I_{p2}\\
+\frac{dI_{s1}}{dt} &= 2 \gamma_p I_{p2} - 2 \gamma_s I_{s1}\\
+\frac{dI_{s2}}{dt} &= 2 \gamma_s I_{s1} - 2 \gamma_s I_{s2}\\
+\frac{dR}{dt} &= 2 \gamma_s I_{s2}\\
 \end{aligned}
 \end{equation}
+For simplicity, we assume $1/\sigma = 1/\gamma_p = 1/\gamma_s = 2.5 \textrm{ days}$ and numerically calculate $g(\tau)$.
+
+We model symptom-based intervention as a constant hazard $h$ applied to symptomatic individuals. Then, the post-intervention differential equations for symptomatic individuals can be written as:
+\begin{equation}
+\begin{aligned}
+\frac{dI_{s1}}{dt} &= 2 \gamma_p I_{p2} - 2 \gamma_s I_{s1} - h I_{s1}\\
+\frac{dI_{s2}}{dt} &= 2 \gamma_s I_{s1} - 2 \gamma_s I_{s2}  - h I_{s2}\\
+\end{aligned}
+\end{equation}
+Then, the post-intervention reproduction number is given by:
+\begin{equation}
+\Rpost = \frac{\beta_p}{\gamma_p} + \frac{\beta_s}{2 \gamma_s + h} + \frac{\beta_s \gamma_s}{(2 \gamma_s + h)^2}.
+\end{equation}
+The strength of intervention is then given by $\Ro/\Rpost$.
+In order to calculate the speed of intervention, we simulate the model with and without the intervention in a fully susceptible population (assuming $S(0) = 1-10^{-8}$, $E_1(0) = 10^{-8}$, and all other state variables at 0) and measuring two growth rates $\rpre$ and $\rpost$.
+The growth rates are calculated by regressing the log incidence between day 20 and 40 against time.
+The speed of intervention is then given by $\rpre - \rpost$.
+
+We model infection-based intervention in a similar way as the test-and-treat intervention for HIV such that the hazard of isolation is given by:
+\begin{equation}
+h(\tau) =  \tsub{h}{max} (1 - \exp(- k f(\tau))),
+\end{equation}
+where $f(\tau)$ is a gamma probability density function with a mean of 2 days and a shape parameter of 2, and $k = 1$.
+The parameter $\tsub{h}{max}$ is chosen such that the strength of intervention at $p=0.25$ is equal to $\Ro$.
+Note that this hazard applies to all infected individuals, rather than just symptomatic individuals.
+The strength and speed of intervention are calculated using Euler-Lotka equations, as shown in the main text.
 
 \pagebreak
 

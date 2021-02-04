@@ -206,7 +206,7 @@ g2 <- ggplot(strengthall) +
     panel.grid = element_blank(),
     panel.border = element_blank(),
     axis.line = element_line(),
-    legend.position = "top"
+    legend.position = "bottom"
   )
 
 speedall <- bind_rows(
@@ -231,7 +231,6 @@ g3 <- ggplot(speedall) +
     axis.line = element_line(),
     legend.position = "none"
   )
-
 
 gtot <- ggarrange(g1, g2, g3, nrow=1)
 
