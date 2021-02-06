@@ -69,7 +69,7 @@ g3 <- ggplot(tt) +
 	geom_line(aes(time*month/year, hazRate*year/month), col=2) +
 	geom_hline(aes(yintercept=phiFun(b_base, tt)*year/month), lty=2, col=2) +
 	scale_x_continuous("Time (years)", limits=c(0, 16.5), expand=c(0, 0)) +
-	scale_y_continuous(expression(h[test]~(year^{-1}))) +
+	scale_y_continuous(expression(h[test]~(1/year))) +
 	ggtitle("C") +
 	theme(
 		panel.grid = element_blank(),
@@ -95,7 +95,7 @@ g4 <- ggplot(speeddata) +
   geom_point(data=speeddata[speeddata$early==earlyBase,], aes(early, speed), size=5, col="red") +
   geom_point(x=earlyBase, y=rfityear, size=5) +
 	scale_x_continuous("Proportion of early transmission", limits=c(0.1, 0.42), expand=c(0, 0)) +
-	scale_y_continuous(expression(Speed~(year^{-1})), limits=c(0, 0.8), expand=c(0, 0)) +
+	scale_y_continuous(expression(Speed~(1/year)), limits=c(0, 0.8), expand=c(0, 0)) +
 	scale_color_manual(values=c("black", "red")) +
 	ggtitle("D") +
 	theme(

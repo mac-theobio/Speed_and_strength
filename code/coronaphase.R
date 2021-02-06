@@ -62,4 +62,4 @@ g2 <- ggplot(rRexample) +
 
 gtot <- grid.arrange(g1, g2, nrow=1)
 
-ggsave("coronaexample.pdf", gtot, width=8, height=4)
+ggsave("coronaphase.pdf", gtot, width=8, height=4)

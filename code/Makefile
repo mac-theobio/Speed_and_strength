@@ -10,13 +10,7 @@ vim_session:
 
 ######################################################################
 
-## Cribbing; delete soon? 2021 Jan 03 (Sun)
-
-%.csv: ../speedstrength/dotdir/code/%.csv
-	$(MV) $< $@
-
-%.R: ../speedstrength/dotdir/code/%.R
-	$(MV) $< $@
+## Crib code deleted 2021 Feb 06 (Sat)
 
 Sources += $(wildcard *.R)
 autopipeR = defined
@@ -25,7 +19,7 @@ autopipeR = defined
 
 ## Paper figures
 
-## Make and glance at all current figures
+## Make and glance at figures from first revision
 Ignore += newfigs.pdf
 newfigs.pdf: gencontrol.Rout.pdf HIVexample.Rout.pdf condom.Rout.pdf tt.Rout.pdf
 	$(pdfcat)
@@ -51,16 +45,26 @@ hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda
 
 ######## coronavirus
 
+## JD ambitious attempt
+coronafuns.rda: coronafuns.R
+
+## SWP code
+## coronaexample.ggp.pdf: coronaexample.R
 coronaexample.Rout: coronaexample.R coronafuns.rda
 coronaexample.pdf: coronaexample.Rout ;
 
-## Daniel's box version (phases of infection)
-coronaphase.Rout: coronaphase.R
-coronaphase.pdf: coronaphase.Rout ;
+## Refactoring
+## coronaPlot.ggp.pdf: coronaPlot.R
+coronaCalc.Rout: coronaCalc.R
+coronaTemp.Rout: coronaTemp.R coronaCalc.rda
+coronaPlot.Rout: coronaPlot.R coronaTemp.rda
+
+
+## Deleting coronaphase (I think Daniel just moved things back to coronaexample)
 
 ######################################################################
 
-## R scripts that don't use makeR yet.
+## R scripts that don't use makeR yet (let alone pipeR ☺)
 legacy = coronafuns kernel data HIVfuns
 legacytargets = $(legacy:%=%.Rout)
 $(legacytargets): %.Rout: %.R

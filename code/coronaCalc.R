@@ -1,7 +1,6 @@
-library(ggplot2); theme_set(theme_bw())
 library(dplyr)
-library(egg)
 library(deSolve)
+library(shellpipes)
 
 r <- log(2)/3
 pbase <- 0.25
@@ -171,19 +170,6 @@ lockdown_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
 }) %>%
   bind_rows
 
-g1 <- ggplot(genexample) +
-  geom_line(aes(time, genden, lty=p)) +
-  scale_x_continuous("Generation time (days)") +
-  scale_y_continuous("Density (per days)", expand=c(0, 0)) +
-  ggtitle("A") +
-  theme(
-    legend.position=c(0.9, 0.9),
-    legend.title=element_blank(),
-    panel.grid = element_blank(),
-    panel.border = element_blank(),
-    axis.line = element_line()
-  )
-
 strengthall <- bind_rows(
   rRexample,
   data.frame(
@@ -193,22 +179,6 @@ strengthall <- bind_rows(
   infection_strength
 )
 
-g2 <- ggplot(strengthall) +
-  geom_line(aes(p, strength, col=type, lty=type)) +
-  geom_point(x=0.25, y=Rbase, size=2) +
-  scale_x_continuous("Proportion of pre-symptomatic transmission, p") +
-  scale_y_continuous("Strength of epidemic/intervention") +
-  scale_color_manual(values=c("black", "orange", "red", "blue")) +
-  scale_linetype_manual(values=1:4) +
-  ggtitle("B") +
-  theme(
-    legend.title=element_blank(),
-    panel.grid = element_blank(),
-    panel.border = element_blank(),
-    axis.line = element_line(),
-    legend.position = "bottom"
-  )
-
 speedall <- bind_rows(
   data.frame(p=seq(0.2, 0.8, by=0.01), speed=r, type="Epidemic"),
   lockdown_speed,
@@ -216,22 +186,4 @@ speedall <- bind_rows(
   infection_speed
 )
 
-g3 <- ggplot(speedall) +
-  geom_line(aes(p, speed, col=type, lty=type)) +
-  geom_point(x=0.25, y=r, size=2) +
-  scale_x_continuous("Proportion of pre-symptomatic transmission, p") +
-  scale_y_continuous("Speed of epidemic/intervention (1/day)") +
-  scale_color_manual(values=c("black", "orange", "blue", "red")) +
-  scale_linetype_manual(values=c(1, 2, 2, 2) +
-  ggtitle("C") +
-  theme(
-    legend.title=element_blank(),
-    panel.grid = element_blank(),
-    panel.border = element_blank(),
-    axis.line = element_line(),
-    legend.position = "none"
-  )
-
-gtot <- ggarrange(g1, g2, g3, nrow=1)
-
-ggsave("coronaexample.pdf", gtot, width=12, height=4)
+saveEnvironment()
