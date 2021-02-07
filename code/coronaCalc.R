@@ -180,7 +180,7 @@ gen_speed <- lapply(pseq, function(p) {
 strengthall <- bind_rows(
   rRexample,
   data.frame(
-    p=pseq, strength=Rbase, type="Lockdown"
+    p=pseq, strength=Rbase, type="Generalized"
   ),
   symptom_strength,
   infection_strength
