@@ -221,8 +221,8 @@ g3 <- ggplot(speedall) +
   geom_point(x=0.25, y=r, size=2) +
   scale_x_continuous("Proportion of pre-symptomatic transmission, p") +
   scale_y_continuous("Speed of epidemic/intervention (1/day)") +
-  scale_color_manual(values=c("black", "orange", "blue", "red")) +
-  scale_linetype_manual(values=c(1, 2, 2, 2) +
+  scale_color_manual(values=c("black", "orange", "red", "blue")) +
+  scale_linetype_manual(values=1:4) +
   ggtitle("C") +
   theme(
     legend.title=element_blank(),

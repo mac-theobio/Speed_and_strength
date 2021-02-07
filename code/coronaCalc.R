@@ -3,9 +3,10 @@ library(deSolve)
 library(shellpipes)
 
 r <- log(2)/3
-pbase <- 0.25
-dbase <- 2.5
-gamma2 <- 2/dbase
+pbase <- 0.25 ## Proportion of early transmission
+dbase <- 2.5 ## Mean time per class (for now, this is always the same for each class)
+del <- 2/dbase ## rate of leaving a sub-box
+pseq <- seq(0.1, 0.8, by=0.025)
 
 model <- function(t, y, par) {
   with(as.list(c(y, par)), {
@@ -31,10 +32,10 @@ genfun <- function(x, p=0.3, duration=dbase) {
     (1-p) * (- pgamma(x, 6, rate=2/duration) + pgamma(x, 4, rate=2/duration))/duration
 }
 
-pvec <- c(0.25, 0.5, 0.75)
+genP <- c(0.25, 0.5, 0.75)
 tvec <- seq(0, 20, by=0.1)
 
-genexample <- lapply(pvec, function(p) {
+genexample <- lapply(genP, function(p) {
   data.frame(
     time=tvec,
     genden=genfun(tvec, p),
@@ -43,7 +44,7 @@ genexample <- lapply(pvec, function(p) {
 }) %>%
   bind_rows
 
-rRexample <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
+rRexample <- lapply(pseq, function(p) {
   R <- 1/integrate(function(x) {
     genfun(x, p) * exp(-r*x)
   }, 0, Inf)[[1]]
@@ -59,15 +60,15 @@ betapbase <- Rbase * pbase/dbase
 betasbase <- Rbase * (1-pbase)/dbase
 
 shazard <- optim(1, function(x) {
-  (betasbase * (1/(x + gamma2) + gamma2/(x + gamma2)^2) - (1 - Rbase * pbase))^2
+  (betasbase * (1/(x + del) + del/(x + del)^2) - (1 - Rbase * pbase))^2
 }, method="Brent", lower=0.1, upper=10)$par
 
-symptom_strength <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
+symptom_strength <- lapply(pseq, function(p) {
   Rtmp <- rRexample$strength[rRexample$p==p]
   betaptmp <- Rtmp * p/dbase
   betastmp <- Rtmp * (1-p)/dbase
   
-  Rpost <- betastmp * (1/(shazard + gamma2) + gamma2/(shazard + gamma2)^2) + betaptmp * dbase
+  Rpost <- betastmp * (1/(shazard + del) + del/(shazard + del)^2) + betaptmp * dbase
   
   data.frame(
     p=p,
@@ -81,7 +82,7 @@ y0 <- c(S=1-1e-8, E1=1e-8, E2=0, Ip1=0, Ip2=0, Is1=0, Is2=0, R=0)
 
 tvec <- seq(0, 100, by=0.01)
 
-symptom_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
+symptom_speed <- lapply(pseq, function(p) {
   Rtmp <- rRexample$strength[rRexample$p==p]
   betaptmp <- Rtmp * p/dbase
   betastmp <- Rtmp * (1-p)/dbase
@@ -116,7 +117,7 @@ hmax <- optim(1, function(hh) {
             lower=0, upper=Inf)[[1]]-1)^2
 }, method="Brent", lower=0.1, upper=10)$par
 
-infection_strength <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
+infection_strength <- lapply(pseq, function(p) {
   Rtmp <- rRexample$strength[rRexample$p==p]
   betaptmp <- Rtmp * p/dbase
   betastmp <- Rtmp * (1-p)/dbase
@@ -132,7 +133,7 @@ infection_strength <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
 }) %>%
   bind_rows
 
-infection_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
+infection_speed <- lapply(pseq, function(p) {
   Rtmp <- rRexample$strength[rRexample$p==p]
   betaptmp <- Rtmp * p/dbase
   betastmp <- Rtmp * (1-p)/dbase
@@ -151,7 +152,7 @@ infection_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
 }) %>%
   bind_rows
 
-lockdown_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
+lockdown_speed <- lapply(pseq, function(p) {
   Rtmp <- rRexample$strength[rRexample$p==p]
   betaptmp <- Rtmp * p/dbase
   betastmp <- Rtmp * (1-p)/dbase
@@ -173,17 +174,17 @@ lockdown_speed <- lapply(seq(0.2, 0.8, by=0.01), function(p) {
 strengthall <- bind_rows(
   rRexample,
   data.frame(
-    p=seq(0.2, 0.8, by=0.01), strength=Rbase, type="Lockdown"
+    p=pseq, strength=Rbase, type="Lockdown"
   ),
   symptom_strength,
   infection_strength
 )
 
 speedall <- bind_rows(
-  data.frame(p=seq(0.2, 0.8, by=0.01), speed=r, type="Epidemic"),
+  data.frame(p=pseq, speed=r, type="Epidemic"),
   lockdown_speed,
   symptom_speed,
   infection_speed
 )
 
-saveEnvironment()
+saveVars(genexample, strengthall, speedall, Rbase, r)

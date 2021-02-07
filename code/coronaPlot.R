@@ -21,7 +21,7 @@ gen <- ggplot(genexample) +
 
 
 scen <- (ggplot()
-	+ aes(p, strength, col=type, lty=type, shape=type, size=type)
+	+ aes(p, col=type, lty=type, shape=type, size=type)
 	+ geom_line()
 	+ geom_point()
 	+ scale_x_continuous("Proportion of pre-symptomatic transmission, p")
@@ -38,27 +38,22 @@ scen <- (ggplot()
 )
 
 strength <- (scen %+% strengthall
-  ## + geom_point(x=0.25, y=Rbase, size=2, color="black")
-  + scale_y_continuous("Strength")
-  + ggtitle("B")
-  + theme(
+	+ aes(y=strength)
+	+ scale_y_continuous("Strength")
+	+ ggtitle("B")
+	+ theme(
     legend.position = "bottom"
   )
 )
 
-g3 <- ggplot(speedall) +
-  geom_line(aes(p, speed, col=type, lty=type)) +
-  geom_point(x=0.25, y=r, size=2) +
-  scale_x_continuous("Proportion of pre-symptomatic transmission, p") +
-  scale_y_continuous("Speed (1/day)") +
-  ggtitle("C") +
-  theme(
-    legend.title=element_blank(),
-    panel.grid = element_blank(),
-    panel.border = element_blank(),
-    axis.line = element_line(),
-    legend.position = "none"
+speed <- (scen %+% speedall
+	+ aes(y=speed)
+	+ scale_y_continuous("Speed (1/day)")
+	+ ggtitle("C")
+	+ theme(
+		legend.position = "none"
   )
+)
 
-gtot <- ggarrange(gen, strength, g3, nrow=1)
+gtot <- ggarrange(gen, strength, speed, nrow=1)
 saveGG(gtot, width=12, height=4)

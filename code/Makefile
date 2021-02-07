@@ -56,9 +56,7 @@ coronaexample.pdf: coronaexample.Rout ;
 ## Refactoring
 ## coronaPlot.ggp.pdf: coronaPlot.R
 coronaCalc.Rout: coronaCalc.R
-coronaTemp.Rout: coronaTemp.R coronaCalc.rda
-coronaPlot.Rout: coronaPlot.R coronaTemp.rda
-
+coronaPlot.Rout: coronaPlot.R coronaCalc.rda
 
 ## Deleting coronaphase (I think Daniel just moved things back to coronaexample)
 
