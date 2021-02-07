@@ -45,20 +45,23 @@ hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda
 
 ######## coronavirus
 
-## JD ambitious attempt
+## Attempt to be more general about kernels (not active)
 coronafuns.rda: coronafuns.R
 
 ## SWP code
+## This is superseded now by the refactored code below
 ## coronaexample.ggp.pdf: coronaexample.R
+Ignore += coronaexample.pdf
 coronaexample.Rout: coronaexample.R coronafuns.rda
 coronaexample.pdf: coronaexample.Rout ;
 
-## Refactoring
+## Refactored code
 ## coronaPlot.ggp.pdf: coronaPlot.R
 coronaCalc.Rout: coronaCalc.R
 coronaPlot.Rout: coronaPlot.R coronaCalc.rda
 
 ## Deleting coronaphase (I think Daniel just moved things back to coronaexample)
+## 2021 Feb 06 (Sat)
 
 ######################################################################
 

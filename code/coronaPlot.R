@@ -2,6 +2,7 @@ library(ggplot2); theme_set(theme_bw())
 library(egg)
 
 library(shellpipes)
+rpcall("coronaPlot.Rout coronaPlot.R coronaCalc.rda")
 
 commandEnvironments()
 startGraphics(width=12, height=4)
