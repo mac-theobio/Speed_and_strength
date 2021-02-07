@@ -33,22 +33,12 @@
 \newcommand{\Ro}{\Rx{0}}
 \newcommand{\Ropre}{\Rx{0,pre}}
 \newcommand{\Ropost}{\Rx{0,post}}
-\newcommand{\Reff}{\Rx{eff}}
-\newcommand{\Reffpre}{\Rx{eff,pre}}
-\newcommand{\Reffpost}{\Rx{eff,post}}
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
 
 \newcommand{\KK}{\ensuremath{{K}}}
 \newcommand{\Kx}[1]{\ensuremath{\KK_{\mathrm{#1}}}}
 \newcommand{\Kpre}{\Kx{pre}}
 \newcommand{\Kpost}{\Kx{post}}
-\newcommand{\Ko}{\Kx{0}}
-\newcommand{\Kopre}{\Kx{0,pre}}
-\newcommand{\Kopost}{\Kx{0,post}}
-\newcommand{\Keff}{\Kx{eff}}
-\newcommand{\Keffpre}{\Kx{eff,pre}}
-\newcommand{\Keffpost}{\Kx{eff,post}}
-\newcommand{\Khat}{\ensuremath{{\hat\KK}}}
 
 \newcommand{\ggg}{\ensuremath{{g}}}
 \newcommand{\gx}[1]{\ensuremath{\ggg_{\mathrm{#1}}}}
@@ -121,7 +111,7 @@ The speed of an epidemic is characterized by the exponential growth rate $r$, wh
 Knowing the strength and speed of an epidemic allows predictions about the course of the epidemic and the effectiveness of intervention strategies.
 
 Much research has prioritized estimates of \RR, and particularly its value in a fully susceptible population --- called the \emph{basic} reproductive number \Ro --- because \RR\ has a threshold value (i.e., $\RR=1$) that determines whether a disease can invade, the level of equilibrium, and the effectiveness of control efforts \citep{anderson1991infectious, diekmann1990definition}.
-The insight that an infection must on average cause at least one new infection under good conditions for a disease to persist goes back $>100$ years \citep{ross1911prevention}; SWP: what do you mean good conditions...
+The insight that an infection must on average cause at least one new infection in a naive population for a disease to persist goes back $>100$ years \citep{ross1911prevention}; 
 the idea of averaging by defining a `typical' infection was formalized 30 years ago \citep{diekmann1990definition}.
 $\RR$ is also of interest because it provides a \emph{prima facie} prediction about the total \emph{size} of an epidemic \citep{anderson1991infectious, ma2006generality, arino2007final, andreasen2011final, miller2012note}.
 
@@ -129,11 +119,7 @@ Here, we argue that the dominance of \RR\ over $r$ in the disease-dynamics liter
 We first generalize the idea that \RR\ measures the difficulty of elimination by showing we can measure an intervention's ``strength'' on the same scale as the reproductive number. 
 We then show that we can likewise measure an intervention's ``speed'' on the same scale as the growth rate.
 Thus, there is a dual sense in which \rr\ also measures difficulty of elimination. 
-While both \RR\ and \rr\ change through time---both intrinsically in response to changes in the proportion of the population susceptible and extrinsically in response to interventions---we simplify the framework by comparing their values under pre- and post-intervention to focus on invasion and elimination of a disease.
 We argue that the primacy of $\RR$ over $r$ is partly due to history, and that there are cases where speed provides the better framing for practical disease questions than strength (as well as the reverse). We provide examples of both situations, for both HIV and COVID-19.
-
-SWP: I don't think this belongs here at all... effpost and opost also feels out of place. Can we delete this para? I added a sentence in the previous paragraph that tried to resolve this.
-Both \RR\ and \rr\ change through time, both intrinsically in response to changes in the proportion of the population susceptible and extrinsically in response to interventions. To \emph{arrest} the spread of disease, we need to bring the ``effective'' spreading quantities under control ($\Reffpost<1$ or $\reffpost<0$). To approach \emph{elimination}, we need spreading to stay under control, even as the proportion of susceptibles approaches 1 and the quantities approach their ``basic'' values ($\Ropost<1$ or $\ropost<0$).
 
 \section{Mathematical theory}
 
@@ -337,7 +323,7 @@ For the test-and-treat intervention, the effective intervention speed also stays
 The effective intervention speed increases slightly as proportion of early transmission increases because the subpopulation that the intervention fails to reach become relatively more important if late transmission is more important.
 Thus, the speed paradigm provides an intuitive underpinning for the originally surprising result of \cite{eaton2014proportion}: the effectiveness of test-and-treat interventions should not depend much on the proportion of early transmission.
 
-We reiterate that a complete calculation using the same assumptions under either paradigm will necessarily provide consistent answers. But in this particular case, the speed paradigm provides an answer whose causes are easier to understand. We argue that it is therefore easier to assess the assumptions underlying the necessarily incomplete assumptions that are made in reality.
+We reiterate that a complete calculation using the same assumptions under either paradigm will necessarily provide consistent answers. But in this particular case, the speed paradigm provides an answer whose causes are easier to understand. We argue that it is therefore easier to assess and investigate the necessarily incomplete assumptions that underlie the conclusion.
 
 %% \section{Other examples}\subsection{COVID-19}
 \section{Example: COVID-19}
@@ -388,9 +374,8 @@ We also find that symptom-based interventions are extremely sensitive to the pro
 The effectiveness of an epidemic intervention is often measured by its ability to reduce the reproductive number --- \RR, or outbreak ``strength'' --- below 1. The exponential growth rate --- $r$, or outbreak ``speed'' --- is often seen just as a stepping stone to \RR\, or even overlooked entirely \citep{park2020reconciling}.
 We argue that \RR\ and $r$ provide equally valid, complementary perspectives on epidemic control, and that there are situations where each provides a clearer picture than the other.
 
-In this study, we:
-first extended the standard paradigm of \RR\ as a critical parameter for control, by defining the strength of an intervention on the same scale as \RR, the strength of the epidemic; 
-then constructed a parallel interpretation which measures the speed of an intervention on the same scale as $r$, the speed of an epidemic.
+In this study, we first extended the standard paradigm of \RR\ as a critical parameter for control, by defining the strength of an intervention on the same scale as \RR, the strength of the epidemic (if control strength $\theta > \Rpre$ then $\Rpost<1$ and the epidemic will be controlled). 
+We then constructed a parallel interpretation which measures the speed of an intervention on the same scale as $r$, the speed of an epidemic  (if control speed $\phi > \rpre$ then $\rpost<0$ and the epidemic will be controlled).
 We thus showed that the standard paradigm for \RR\ and control has a natural parallel interpretation in terms of $r$.
 
 To illustrate this idea, we used simple assumptions to explore the effects of two HIV intervention strategies (condoms and test-and-treat), using both strength- and speed-based frameworks.
