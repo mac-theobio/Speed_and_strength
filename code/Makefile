@@ -24,7 +24,7 @@ Ignore += newfigs.pdf
 newfigs.pdf: gencontrol.Rout.pdf HIVexample.Rout.pdf condom.Rout.pdf tt.Rout.pdf
 	$(pdfcat)
 
-export: gencontrol.Rout.pdf.tod HIVexample.Rout.pdf.tod condom.Rout.pdf.tod tt.Rout.pdf.tod
+export: gencontrol.Rout.pdf.tod HIVexample.Rout.pdf.tod condom.Rout.pdf.tod tt.Rout.pdf.tod coronaPlot.ggp.pdf.tod
 
 ## Make the two different GIs from the kernel
 gencontrol.Rout: gencontrol.R kernel.R
