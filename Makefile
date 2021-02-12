@@ -10,7 +10,7 @@ Ignore += $(alldirs)
 
 ## -include makestuff/perl.def
 
-######################################################################
+####################################################################
 
 products: speedstrength.pdf supp.pdf head.txt
 
@@ -18,6 +18,13 @@ Sources += $(wildcard *.tex *.bib)
 
 ## speedstrength.pdf: speedstrength.tex
 ## supp.pdf: supp.tex
+
+Ignore += DushoffPark_Supp_compartmental_text.pdf
+DushoffPark_Supp_compartmental_text.pdf: supp.pdf
+	pdfjam -o $@ $< 1-2
+
+DushoffPark_Supp_HIVintervals_fig.pdf: supp.pdf
+	pdfjam -o $@ $< 3
 
 ######################################################################
 
