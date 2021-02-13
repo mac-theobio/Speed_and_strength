@@ -19,6 +19,9 @@ Sources += $(wildcard *.tex *.bib)
 ## speedstrength.pdf: speedstrength.tex
 ## supp.pdf: supp.tex
 
+## Hacked for now; build rule later
+## prsb.pdf: prsb.tex
+
 Ignore += DushoffPark_Supp_compartmental_text.pdf
 DushoffPark_Supp_compartmental_text.pdf: supp.pdf
 	pdfjam -o $@ $< 1-2

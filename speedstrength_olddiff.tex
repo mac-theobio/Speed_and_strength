@@ -1,19 +1,21 @@
 \documentclass[12pt]{article}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL speedstrength.tex.1d9ad422e25.oldfile   Sat Feb  6 23:13:20 2021
-%DIF ADD speedstrength.tex                       Sun Feb  7 21:12:10 2021
+%DIF ADD speedstrength.tex                       Fri Feb 12 15:17:33 2021
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage{color}
 \usepackage[top=1in,left=1in, right = 1in, footskip=1in]{geometry}
 
-\title{Speed and strength of an epidemic intervention}
-\author{Jonathan Dushoff, Sang Woo Park}
+%DIF 8-9d8
+%DIF < \title{Speed and strength of an epidemic intervention}
+%DIF < \author{Jonathan Dushoff, Sang Woo Park}
+%DIF -------
 
 \usepackage{tabularx}
 
-%DIF 13c13-14
+%DIF 13c11-12
 %DIF < %% \usepackage{amsmath}
 %DIF -------
 \usepackage{amsfonts} %DIF > 
@@ -26,30 +28,30 @@
 
 \usepackage{bm}
 
-%DIF 21-23d22
+%DIF 21-23d20
 %DIF < \usepackage{afterpage}
 %DIF < \usepackage{pdflscape}
 %DIF < 
 %DIF -------
 \newcommand{\etal}{\textit{et al.}}
 
-%DIF 26a24
+%DIF 26a22
 %% Comments not used; activation command was edited not tested because of a vim syntax problem! %DIF > 
 %DIF -------
 \newcommand{\comment}{RENEW the comment command}
 \renewcommand{\comment}[3]{}
-%DIF 28c27
+%DIF 28c25
 %DIF < \renewcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
 %DIF -------
 \renewcommand{\comment}[3]{\textcolor{#1}{[\textbf{#2: }\textit{#3}]}} %DIF > 
 %DIF -------
 
-%DIF 30-31d29
+%DIF 30-31d27
 %DIF < \newcommand{\Rx}[1]{\ensuremath{{\mathcal R}_{#1}}} 
 %DIF < \newcommand{\Ro}{\Rx{0}}
 %DIF -------
 \newcommand{\RR}{\ensuremath{{\mathcal R}}}
-%DIF 33a30-35
+%DIF 33a28-33
 \newcommand{\Rx}[1]{\ensuremath{\RR_{\mathrm{#1}}}} %DIF > 
 \newcommand{\Rpre}{\Rx{pre}} %DIF > 
 \newcommand{\Rpost}{\Rx{post}} %DIF > 
@@ -59,7 +61,7 @@
 %DIF -------
 \newcommand{\Rhat}{\ensuremath{{\hat\RR}}}
 
-%DIF 35a38-46
+%DIF 35a36-44
 \newcommand{\KK}{\ensuremath{{K}}} %DIF > 
 \newcommand{\Kx}[1]{\ensuremath{\KK_{\mathrm{#1}}}} %DIF > 
 \newcommand{\Kpre}{\Kx{pre}} %DIF > 
@@ -71,7 +73,7 @@
  %DIF > 
 %DIF -------
 \newcommand{\rr}{\ensuremath{{r}}}
-%DIF 36a48-56
+%DIF 36a46-54
 \newcommand{\rx}[1]{\ensuremath{\rr_{\mathrm{#1}}}} %DIF > 
 \newcommand{\rpre}{\rx{pre}} %DIF > 
 \newcommand{\rpost}{\rx{post}} %DIF > 
@@ -89,12 +91,15 @@
 
 \newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
 \newcommand{\figlab}[1]{\label{fig:#1}}
-%DIF 43c64
+%DIF 43c62
 %DIF < \newcommand{\eqref}[1]{(\ref{eq:#1})}
 %DIF -------
 \renewcommand{\eqref}[1]{(\ref{eq:#1})} %DIF > 
 %DIF -------
 \newcommand{\eqlab}[1]{\label{eq:#1}}
+%DIF DELETED TITLE COMMANDS FOR MARKUP
+\title{\DIFdelbegin \DIFdel{Speed and strength of an epidemic intervention}\DIFdelend }%DIFAUXCMD
+\author{\DIFdelbegin \DIFdel{Jonathan Dushoff, Sang Woo Park}\DIFdelend }%DIFAUXCMD
 %DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
 %DIF UNDERLINE PREAMBLE %DIF PREAMBLE
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE
@@ -161,13 +166,22 @@
 
 \begin{document}
 
-\begin{flushleft}{
-	\Large
-	\textbf\newline{
+\DIFdelbegin %DIFDELCMD < \begin{flushleft}{
+%DIFDELCMD < 	\Large
+%DIFDELCMD < 	\textbf\newline{
+%DIFDELCMD < 		Strength and speed of an epidemic intervention
+%DIFDELCMD < 	}
+%DIFDELCMD < }
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{flushleft}{
+	{\huge \textbf\newline{
 		Strength and speed of an epidemic intervention
+	}}
+	\textbf\newline{
+		CONFIDENTIAL DRAFT; IN PROCESS PRSB; 2021 Feb
 	}
 }
-\newline
+\DIFaddend \newline
 \\
 Jonathan Dushoff\textsuperscript{1,2,3,*}
 Sang Woo Park\textsuperscript{4}
