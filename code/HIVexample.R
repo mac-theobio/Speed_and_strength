@@ -56,7 +56,7 @@ g3 <- ggplot(earlydata) +
 	geom_segment(aes(x=earlyBase, y=0, xend=earlyBase, yend=3.17), lty=2) +
 	geom_segment(aes(x=0, y=3.17, xend=earlyBase, yend=3.17), lty=2) +
 	scale_x_continuous("Proportion of early transmission", expand=c(0, 0)) +
-	scale_y_continuous("Reproduction number", limits=c(0, 5), expand=c(0, 0)) +
+	scale_y_continuous("Reproductive number", limits=c(0, 5), expand=c(0, 0)) +
 	ggtitle("C") +
 	theme(
 		legend.position="none",
