@@ -2,9 +2,9 @@ library(tidyr)
 library(dplyr)
 library(ggplot2); theme_set(theme_bw())
 library(gridExtra)
+library(shellpipes)
 
-source("makestuff/makeRfuns.R")
-sourceFiles()
+loadEnvironments()
 makeGraphics(width=8, height=3)
 
 gbar <- 16.2
@@ -60,3 +60,4 @@ p2 <- ggplot(data=g1) +
 
 grid.arrange(p1, p2, nrow=1)
 
+saveEnvironment()

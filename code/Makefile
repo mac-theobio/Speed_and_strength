@@ -26,8 +26,11 @@ newfigs.pdf: gencontrol.Rout.pdf HIVexample.Rout.pdf condom.Rout.pdf tt.Rout.pdf
 
 export: gencontrol.Rout.pdf.tod HIVexample.Rout.pdf.tod condom.Rout.pdf.tod tt.Rout.pdf.tod coronaPlot.ggp.pdf.tod
 
-## Make the two different GIs from the kernel
-gencontrol.Rout: gencontrol.R kernel.R
+## Make the two different GIs from the kernel (a "legacy", see below)
+gencontrol.Rout: gencontrol.R kernel.rda
+
+## Post-paper, a reformatted figure
+gencolumn.Rout: gencolumn.R gencontrol.rda
 
 ######## HIV
 
@@ -86,6 +89,7 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
+-include makestuff/pdfpages.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
