@@ -44,7 +44,7 @@ head.txt: speedstrength.tex abstract.pl
 october: speedstrength.tex.1d9ad422e25.oldfile supp.tex.1d9ad422e25.oldfile
 dushoff: speedstrength.tex.cb8e114.oldfile
 
-testsetup: october
+testsetup: 
 	cd code && $(MAKE) Makefile
 speedstrength_olddiff.pdf: speedstrength.tex
 oldreset:
