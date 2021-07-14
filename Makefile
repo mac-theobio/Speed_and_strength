@@ -26,6 +26,7 @@ Ignore += DushoffPark_Supp_compartmental_text.pdf
 DushoffPark_Supp_compartmental_text.pdf: supp.pdf
 	pdfjam -o $@ $< 1-2
 
+Ignore += DushoffPark_Supp_HIVintervals_fig.pdf
 DushoffPark_Supp_HIVintervals_fig.pdf: supp.pdf
 	pdfjam -o $@ $< 3
 
