@@ -46,6 +46,8 @@ tt.Rout: tt.R HIVfuns.rda HIVfit.rda kernel.rda units.rda
 
 hivGens.Rout: hivGens.R HIVfuns.rda kernel.rda HIVfit.rda units.rda 
 
+units.Rout: units.R
+
 ######## coronavirus
 
 ## Attempt to be more general about kernels (not active)
@@ -63,13 +65,15 @@ coronaexample.pdf: coronaexample.Rout ;
 coronaCalc.Rout: coronaCalc.R
 coronaPlot.Rout: coronaPlot.R coronaCalc.rda
 
+## coronaPlot.Rout-1.pdf:
+
 ## Deleting coronaphase (I think Daniel just moved things back to coronaexample)
 ## 2021 Feb 06 (Sat)
 
 ######################################################################
 
-## R scripts that don't use makeR yet (let alone pipeR ☺)
-legacy = coronafuns kernel data HIVfuns
+## R scripts from before pipeR ☺
+legacy = coronafuns kernel data HIVfuns units
 legacytargets = $(legacy:%=%.Rout)
 $(legacytargets): %.Rout: %.R
 	$(wrapR)

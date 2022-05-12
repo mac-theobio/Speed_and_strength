@@ -5,7 +5,7 @@ library(shellpipes)
 rpcall("coronaPlot.Rout coronaPlot.R coronaCalc.rda")
 
 commandEnvironments()
-startGraphics()
+startGraphics(width=5, height=4)
 
 gen <- ggplot(genexample) +
   geom_line(aes(time, genden, lty=p)) +
@@ -56,9 +56,8 @@ speed <- (scen %+% speedall
   )
 )
 
-print(gen+theme_bw(base_size=15) + theme(legend.position="top"))
-print(strength+theme_bw(base_size=15) + theme(legend.position="top"))
-print(speed+theme_bw(base_size=15) + theme(legend.position="top"))
+print(strength + ggtitle("") + theme(legend.position="top"))
+print(speed + ggtitle("") + theme(legend.position="top"))
 
 ## The "extra" ggarrange prints an ugly plot, but is necessary to avoid blanks in the final gg product (weird-face emoji)
 gtot <- ggarrange(gen, strength, speed, nrow=1)

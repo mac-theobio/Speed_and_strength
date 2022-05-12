@@ -3,7 +3,6 @@ library(dplyr)
 library(ggplot2); theme_set(theme_bw())
 library(gridExtra)
 
-source("makestuff/makeRfuns.R")
 commandEnvironments()
 makeGraphics(width=8, height=3)
 
